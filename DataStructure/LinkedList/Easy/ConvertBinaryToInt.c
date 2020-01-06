@@ -6,7 +6,6 @@
  * };
  */
 
-
 int getDecimalValue(struct ListNode* head){
     int decimal = 0;
     
