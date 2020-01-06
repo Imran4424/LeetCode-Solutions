@@ -7,7 +7,7 @@
  */
 
 
-struct ListNode* reverseList(struct ListNode* head){
+struct ListNode* reverseList(struct ListNode* head) {
     
     if(NULL == head || NULL == head -> next ) {
         return head;
