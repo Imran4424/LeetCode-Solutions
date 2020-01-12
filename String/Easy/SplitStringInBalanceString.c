@@ -1,6 +1,7 @@
 int balancedStringSplit(char * s){
     int pairCount = 0, rCount = 0, lCount = 0;
     for(int i = 0; s[i] != '\0'; i++) {
+        // we are checking at the begin of 
         if(0 != rCount && 0 != lCount && rCount == lCount) {
             pairCount++;
             rCount = lCount = 0;
@@ -13,5 +14,5 @@ int balancedStringSplit(char * s){
         }        
     }
 
-    return pairCount+1;
+    return pairCount + 1;
 }
