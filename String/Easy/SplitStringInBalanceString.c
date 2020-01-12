@@ -10,9 +10,7 @@ int balancedStringSplit(char * s){
             rCount++;
         } else if('L' == s[i]) {
             lCount++;
-        }
-        
-        printf("%c", s[i]);
+        }        
     }
 
     return pairCount+1;
