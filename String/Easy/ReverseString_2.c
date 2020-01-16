@@ -3,7 +3,6 @@
     https://leetcode.com/problems/reverse-string-ii/
 */
 
-
 char * reverseStr(char * s, int k) {
     int count = 1;
     int lastStart = (count - 1) * k;
