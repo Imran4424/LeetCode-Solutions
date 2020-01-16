@@ -28,6 +28,7 @@ int numUniqueEmails(char ** emails, int emailsSize) {
         for(int j = 0; j < emails[i][j] != '@'; j++) {
             
             if('.' == emails[i][j]) {
+                // printf("there's a .\n");
                 /// the condition is really clever :)
                 for(int x = j; emails[i][x - 1 + 1] != '\0'; x++) {
                     emails[i][x] = emails[i][x + 1];
@@ -36,7 +37,7 @@ int numUniqueEmails(char ** emails, int emailsSize) {
             }
             
             if('+' == emails[i][j]) {
-                //printf("there's a +\n");
+                // printf("there's a +\n");
                 int target = j + 1;
                 
                 while('@' != emails[i][target]) {
