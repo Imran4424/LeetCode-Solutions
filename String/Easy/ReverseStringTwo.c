@@ -1,6 +1,6 @@
 
 /*
-
+	https://leetcode.com/problems/reverse-string/
 */
 
 void reverseString(char* s, int sSize){
