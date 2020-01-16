@@ -1,6 +1,7 @@
 
 
 
+
 char* defangIPaddr(char* address){
     
     char *encodedIP = malloc(sizeof(char) * 22);
