@@ -1,4 +1,8 @@
 
+/*
+    
+*/
+
 char * freqAlphabets(char * s){
     char digitStr[25];
     int k = 0, tCount = 0;
