@@ -76,7 +76,6 @@ int numUniqueEmails(char ** emails, int emailsSize) {
             }
         } 
     }
-    
        
     return numUnique;
 }
