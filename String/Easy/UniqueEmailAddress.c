@@ -1,6 +1,6 @@
 
 /*
-    
+    https://leetcode.com/problems/unique-email-addresses/
 */
 
 bool isUnique(char *firstStr, char *secondStr) {
