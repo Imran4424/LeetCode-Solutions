@@ -1,4 +1,6 @@
 
+/**/
+
 void reverseString(char* s, int sSize){
     
     int availSize = sSize - 1;
