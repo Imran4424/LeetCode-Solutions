@@ -44,6 +44,10 @@ struct TreeNode* deleteNode(struct TreeNode* root, int target) {
 }
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
+	if(NULL == root) {
+		return root;
+	}
 
+	
 }
 
