@@ -21,9 +21,9 @@ struct TreeNode* deleteNode(struct TreeNode* root, int target) {
 	}
 
 	if(target > root -> val) {
-		target -> right = deleteNode(root -> right, target);
+		root -> right = deleteNode(root -> right, target);
 	} else if(target < root -> val) {
-		target -> left = deleteNode(root -> left, target);
+		root -> left = deleteNode(root -> left, target);
 	} else {
 		if(NULL == root -> left && NULL == root -> right) {
 			root = NULL;
