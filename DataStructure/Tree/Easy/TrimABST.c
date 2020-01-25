@@ -12,7 +12,7 @@ int MinValue(struct TreeNode* root) {
 		return root -> val;
 	}
 
-	MinValue(root -> left);
+	return MinValue(root -> left);
 }
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
