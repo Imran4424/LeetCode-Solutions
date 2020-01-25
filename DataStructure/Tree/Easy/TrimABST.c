@@ -74,7 +74,7 @@ struct TreeNode* deleteNodeRight(struct TreeNode* root, int target) {
 
 			root -> val = replaceVal;
 
-			root -> right = deleteNodeLeft(root -> right, replaceVal);
+			root -> right = deleteNodeRight(root -> right, replaceVal);
 		}
 	}
 
