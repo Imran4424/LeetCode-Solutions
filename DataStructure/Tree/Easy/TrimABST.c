@@ -40,7 +40,6 @@ struct TreeNode* deleteNode(struct TreeNode* root, int target) {
 		}
 	}
 
-
 	return root;
 }
 
