@@ -90,7 +90,7 @@ struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
 		if(root -> val < L) {
 			root = deleteNodeLeft(root, root -> val);
 		} else {
-			root = deleteNodeRight(root, root -> val)
+			root = deleteNodeRight(root, root -> val);
 		}
 		
 	}
