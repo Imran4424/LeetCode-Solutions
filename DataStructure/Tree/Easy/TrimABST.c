@@ -15,6 +15,14 @@ int MinValue(struct TreeNode* root) {
 	return MinValue(root -> left);
 }
 
+int MaxValue(struct TreeNode* root) {
+	if(NULL == root -> right) {
+		return root -> val;
+	}
+
+	return MaxValue(root -> right);
+}
+
 struct TreeNode* deleteNode(struct TreeNode* root, int target) {
 	if(NULL == root) {
 		return root;
