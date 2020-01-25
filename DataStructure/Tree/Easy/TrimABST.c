@@ -7,6 +7,13 @@
  * };
  */
 
+int MinValue(struct TreeNode* root) {
+	if(NULL == root -> left) {
+		return root -> val;
+	}
+
+	MinValue(root -> left);
+}
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
 
