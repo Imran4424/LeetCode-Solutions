@@ -7,6 +7,13 @@
  * };
  */
 
+void getleftLeafSum(struct TreeNode* root, int *leftLeafSum) {
+	if(NULL == root) {
+		return;
+	}
+
+	
+}
 
 int sumOfLeftLeaves(struct TreeNode* root){
 
