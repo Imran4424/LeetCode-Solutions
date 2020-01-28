@@ -21,7 +21,7 @@ void getleftLeafSum(struct TreeNode* root, int *leftLeafSum, int rootCount) {
 
 	getleftLeafSum(root -> left, leftLeafSum, rootCount);
 
-	if(NULL != root -> right -> left) {
+	if(NULL != root -> right && NULL != root -> right -> left) {
 		getleftLeafSum(root -> right, leftLeafSum, rootCount);
 	}
 }
