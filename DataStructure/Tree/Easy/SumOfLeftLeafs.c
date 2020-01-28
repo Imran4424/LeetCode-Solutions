@@ -7,7 +7,7 @@
  * };
  */
 
-void getleftLeafSum(struct TreeNode* root, int *leftLeafSum) {
+void getleftLeafSum(struct TreeNode* root, int *leftLeafSum, int rootCount) {
 	if(NULL == root) {
 		return;
 	}
@@ -20,7 +20,7 @@ void getleftLeafSum(struct TreeNode* root, int *leftLeafSum) {
 	getleftLeafSum(root -> left, leftLeafSum);
 
 	if(NULL != root -> right -> left) {
-		getleftLeafSum(root -> right, leftLeafSum);
+		getleftLeafSum(root -> right, leftLeafSum, 0);
 	}
 }
 
