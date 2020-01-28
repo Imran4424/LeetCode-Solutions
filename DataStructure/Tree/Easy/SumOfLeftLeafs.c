@@ -29,7 +29,7 @@ void getleftLeafSum(struct TreeNode* root, int *leftLeafSum, int rootCount) {
 int sumOfLeftLeaves(struct TreeNode* root){
 	int leftLeafSum = 0;
 
-	getleftLeafSum(root, &leftLeafSum, rootCount);
+	getleftLeafSum(root, &leftLeafSum, 0);
 
 	return leftLeafSum;
 }
