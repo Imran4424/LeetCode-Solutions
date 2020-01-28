@@ -12,7 +12,16 @@ void getleftLeafSum(struct TreeNode* root, int *leftLeafSum) {
 		return;
 	}
 
-	
+	if(NULL == root -> left && NULL == root -> right) {
+		*leftLeafSum = *leftLeafSum + root -> val;
+		return;
+	}
+
+	getleftLeafSum(root -> left, leftLeafSum);
+
+	if(NULL != root -> right -> left) {
+		getleftLeafSum(root -> right, leftLeafSum);
+	}
 }
 
 int sumOfLeftLeaves(struct TreeNode* root){
