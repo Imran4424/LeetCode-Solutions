@@ -7,7 +7,8 @@ char * numberToWords(long long int num) {
     char *spelling = malloc(100 * sizeof(char));
     
     while(0 != num) {
-        digit[index++]
+    	digits[index++] = num % 10;
+    	num = num / 10;
     } 
 }
 
