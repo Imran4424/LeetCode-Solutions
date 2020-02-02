@@ -29,6 +29,8 @@ struct ListNode* mergeTwoLists(struct ListNode* listOne, struct ListNode* listTw
 }
 
 struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
-    for     
+    for(int i = 0; i < listsSize; i++) {
+        
+    }    
 }
 
