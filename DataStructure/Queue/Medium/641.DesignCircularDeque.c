@@ -1,6 +1,5 @@
 
 
-
 typedef struct {
     int data;
 } MyCircularDeque;
