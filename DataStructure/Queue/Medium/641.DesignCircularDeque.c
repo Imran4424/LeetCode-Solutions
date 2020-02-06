@@ -41,7 +41,6 @@ bool myCircularDequeInsertLast(MyCircularDeque* obj, int value) {
 /** Deletes an item from the front of Deque. Return true if the operation is successful. */
 bool myCircularDequeDeleteFront(MyCircularDeque* obj) {
     if(0 == currentSize) {
-        //front = rear = qSize;
         return false;
     }
 
@@ -54,7 +53,6 @@ bool myCircularDequeDeleteFront(MyCircularDeque* obj) {
 /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
 bool myCircularDequeDeleteLast(MyCircularDeque* obj) {
     if(0 == currentSize) {
-        //front = rear = qSize;
         return false;
     }
 
@@ -66,7 +64,6 @@ bool myCircularDequeDeleteLast(MyCircularDeque* obj) {
 /** Get the front item from the deque. */
 int myCircularDequeGetFront(MyCircularDeque* obj) {
     if(0 == currentSize) {
-        //front = rear = qSize;
         return -1;
     }
 
