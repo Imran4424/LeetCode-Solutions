@@ -10,6 +10,7 @@ int front, rear, qSize, currentSize;
 
 MyCircularDeque* myCircularDequeCreate(int k) {
  	MyCircularDeque* temp = malloc(((2 * k) + 1) * sizeof(MyCircularDeque));
+ 	// front and rear need to be different in this case
  	front = k - 1;
  	rear = k;
     qSize = k;
