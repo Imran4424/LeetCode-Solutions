@@ -12,7 +12,7 @@ struct ListNode* reverseList(struct ListNode* head){
         return head;
     }
     
-	ListNode *newHead = NULL, *travel = head;
+	struct ListNode *newHead = NULL, *travel = head;
     
     while(NULL != travel) {
         ListNode* InsertNode = new ListNode(travel -> val);
