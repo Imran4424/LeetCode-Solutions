@@ -97,21 +97,20 @@ struct ListNode* addTwoNumbers(struct ListNode* lisOne, struct ListNode* l2){
 		listTwo = listTwo -> next;
 	}
     
-    if(carry > 0) {
-        struct ListNode *temp = malloc(sizeof(struct ListNode));
-        temp -> val = carry;
-        temp -> next = NULL;
-       
-        //printf("Hi");
-        while(NULL != travel -> next) {
-            //printf("inside while");
-            travel = travel -> next;
-        }
-            
-        travel -> next = temp;
-    }
-    
-    return newList;
+	if(carry > 0) {
+		struct ListNode *temp = malloc(sizeof(struct ListNode));
+		temp -> val = carry;
+		temp -> next = NULL;
 
+		//printf("Hi");
+		while(NULL != travel -> next) {
+			//printf("inside while");
+			travel = travel -> next;
+		}
+	    
+		travel -> next = temp;
+	}
+    
+	return newList;
 }
 
