@@ -79,22 +79,22 @@ struct ListNode* addTwoNumbers(struct ListNode* lisOne, struct ListNode* l2){
 	}
     
 	while(NULL != listTwo) {
-	int digitTwo = listTwo -> val;
-	int result = digitTwo + carry;
+		int digitTwo = listTwo -> val;
+		int result = digitTwo + carry;
 
-	carry = result / 10;
+		carry = result / 10;
 
-	struct ListNode *temp = malloc(sizeof(struct ListNode));
-	temp -> val = result % 10;
-	temp -> next = NULL;
+		struct ListNode *temp = malloc(sizeof(struct ListNode));
+		temp -> val = result % 10;
+		temp -> next = NULL;
 
-	while(NULL != travel -> next) {
-	    travel = travel -> next;
-	}
+		while(NULL != travel -> next) {
+			travel = travel -> next;
+		}
 	    
-	travel -> next = temp;
+		travel -> next = temp;
 
-	listTwo = listTwo -> next;
+		listTwo = listTwo -> next;
 	}
     
     if(carry > 0) {
