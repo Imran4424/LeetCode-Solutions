@@ -27,6 +27,9 @@ struct ListNode* reverseList(struct ListNode* head){
 }
 
 struct ListNode* addTwoNumbers(struct ListNode* listOne, struct ListNode* listTwo){
+	listOne = reverseList(listOne);
+	listTwo = reverseList(listTwo);
+
 	int carry = 0;
 	struct ListNode * newList = NULL;
 	struct ListNode *travel;
