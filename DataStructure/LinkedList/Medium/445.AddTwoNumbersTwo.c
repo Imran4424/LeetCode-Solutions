@@ -15,7 +15,7 @@ struct ListNode* reverseList(struct ListNode* head){
 	struct ListNode *newHead = NULL, *travel = head;
 
 	while(NULL != travel) {
-		ListNode* InsertNode = new ListNode(travel -> val);
+		struct ListNode* InsertNode = new ListNode(travel -> val);
 
 		InsertNode -> next = newHead;
 		newHead = InsertNode;
@@ -113,6 +113,8 @@ struct ListNode* addTwoNumbers(struct ListNode* listOne, struct ListNode* listTw
 	    
 		travel -> next = temp;
 	}
+
+	newList = reverseList(newList);
     
 	return newList;
 }
