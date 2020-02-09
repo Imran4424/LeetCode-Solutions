@@ -15,8 +15,8 @@ struct ListNode* reverseList(struct ListNode* head){
 	struct ListNode *newHead = NULL, *travel = head;
 
 	while(NULL != travel) {
-		struct ListNode* InsertNode = new ListNode(travel -> val);
-
+		struct ListNode* InsertNode = malloc(sizeof(struct ListNode));
+		InsertNode -> val = travel -> val;
 		InsertNode -> next = newHead;
 		newHead = InsertNode;
 
