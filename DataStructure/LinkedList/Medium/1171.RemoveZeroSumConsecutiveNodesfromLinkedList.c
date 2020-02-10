@@ -21,21 +21,14 @@ struct ListNode* removeZeroSumSublists(struct ListNode* head){
 
         if(0 == sum) {
 
+            while(NULL != midTravel && 0 == midTravel -> val) {
+                midTravel = midTravel -> next;
+            }
+
             if(NULL == prev) {
                 head = midTravel;
-
-                while(NULL != head && 0 == head -> val) {
-                    head = head -> next;
-                }
-
             } else {
                 prev -> next = midTravel;
-
-                while(NULL != midTravel && 0 == midTravel -> val) {
-                    midTravel = midTravel -> next;
-                    prev -> next = midTravel;
-                }
-                
             }
 
             travel = midTravel;
