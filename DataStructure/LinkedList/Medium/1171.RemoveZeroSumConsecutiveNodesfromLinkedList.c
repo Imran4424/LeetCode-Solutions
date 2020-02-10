@@ -28,7 +28,6 @@ struct ListNode* removeZeroSumSublists(struct ListNode* head){
                     head = head -> next;
                 }
 
-                travel = head;
             } else {
                 prev -> next = midTravel;
 
@@ -36,9 +35,10 @@ struct ListNode* removeZeroSumSublists(struct ListNode* head){
                     midTravel = midTravel -> next;
                     prev -> next = midTravel;
                 }
-                travel = midTravel;
+                
             }
 
+            travel = midTravel;
             continue;
         }
 
