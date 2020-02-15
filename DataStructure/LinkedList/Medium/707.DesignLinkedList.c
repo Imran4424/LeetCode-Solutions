@@ -72,6 +72,8 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 		head -> val = initValue;
 		return;
 	}
+
+	MyLinkedList
 }
 
 void myLinkedListFree(MyLinkedList* head) {
