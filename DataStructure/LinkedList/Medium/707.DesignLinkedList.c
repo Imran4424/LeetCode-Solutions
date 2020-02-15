@@ -23,7 +23,10 @@ int myLinkedListGet(MyLinkedList* head, int index) {
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
 void myLinkedListAddAtHead(MyLinkedList* head, int val) {
-	if(initValue == head -> data)
+	if(initValue == head -> data) {
+		head -> data = val;
+		return;
+	}
 
 	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
 	temp -> data = val;
