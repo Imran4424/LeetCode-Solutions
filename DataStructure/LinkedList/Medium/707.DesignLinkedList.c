@@ -73,7 +73,14 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 		return;
 	}
 
-	MyLinkedList
+	if(0 == index) {
+		head = head -> next;
+		return;
+	}
+
+	MyLinkedList *traval = head;
+
+	while(index > 1 && )
 }
 
 void myLinkedListFree(MyLinkedList* head) {
