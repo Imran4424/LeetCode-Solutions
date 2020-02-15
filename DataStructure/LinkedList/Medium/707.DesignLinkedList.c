@@ -1,5 +1,5 @@
 
-int initValue = -9995;
+int initValue = -32005;
 
 typedef struct MyLinkedList{
 	int data;
@@ -23,6 +23,7 @@ int myLinkedListGet(MyLinkedList* head, int index) {
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
 void myLinkedListAddAtHead(MyLinkedList* head, int val) {
+	// when linkedlist is empty
 	if(initValue == head -> data) {
 		head -> data = val;
 		return;
