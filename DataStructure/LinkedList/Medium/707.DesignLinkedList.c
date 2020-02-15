@@ -9,7 +9,7 @@ typedef struct MyLinkedList{
 /** Initialize your data structure here. */
 
 MyLinkedList* myLinkedListCreate() {
-	MyLinkedList *temp;
+	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
 
 	return temp;
 }
@@ -44,7 +44,7 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 }
 
 void myLinkedListFree(MyLinkedList* head) {
-    
+	free(head);
 }
 
 /**
