@@ -38,7 +38,11 @@ void myLinkedListAddAtHead(MyLinkedList* head, int val) {
 
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList* head, int val) {
-  
+	// when linkedlist is empty
+	if(initValue == head -> data) {
+		head -> data = val;
+		return;
+	}
 }
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
