@@ -70,6 +70,7 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 
 	if(NULL == head -> next && 0 == index) {
 		head -> val = initValue;
+		return;
 	}
 }
 
