@@ -64,7 +64,13 @@ void myLinkedListAddAtIndex(MyLinkedList* head, int index, int val) {
 
 /** Delete the index-th node in the linked list, if the index is valid. */
 void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
-  
+	if(initValue == head -> val) {
+		return;
+	}
+
+	if(NULL == head -> next && 0 == index) {
+		head -> val = initValue;
+	}
 }
 
 void myLinkedListFree(MyLinkedList* head) {
