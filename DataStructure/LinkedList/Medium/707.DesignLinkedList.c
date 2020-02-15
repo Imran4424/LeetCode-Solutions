@@ -49,6 +49,12 @@ void myLinkedListAddAtTail(MyLinkedList* head, int val) {
 	while(traval -> next != NULL) {
 		traval = traval -> next;
 	}
+
+	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
+	temp -> data = val;
+	temp -> next = NULL;
+
+	traval -> next = 
 }
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
