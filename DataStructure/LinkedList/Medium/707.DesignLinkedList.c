@@ -43,6 +43,12 @@ void myLinkedListAddAtTail(MyLinkedList* head, int val) {
 		head -> data = val;
 		return;
 	}
+
+	MyLinkedList *traval = head;
+
+	while(traval -> next != NULL) {
+		traval = traval -> next;
+	}
 }
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
