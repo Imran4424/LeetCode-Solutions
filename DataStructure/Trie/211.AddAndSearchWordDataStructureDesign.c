@@ -38,6 +38,8 @@ void wordDictionaryAddWord(WordDictionary* travel, char * word) {
 	travel -> endMark = true;
 }
 
+// always copy string using function
+// using function will generate less errors
 void copyStringExclude(char *dest, char *source, int index) {
 	int i = 0;
 	for (; source[index]; i++) {
