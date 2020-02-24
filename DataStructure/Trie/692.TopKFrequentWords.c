@@ -48,10 +48,19 @@ void trieInsert(Trie* travel, char *word) {
 	}
 }
 
+void copyString(char *dest, char *source) {
+    int i;
+    for(i = 0; source[i]; i++) {
+        dest[i] = source[i];
+    }
+
+    dest[i] = '\0';
+}
+
 char **frequentWords;
 int indexTrie;
 
-void triePrintAll(node* travel, char *word, int pos) {
+void findFrequentWords(node* travel, char *word, int pos) {
     if(NULL == travel) {
         return;
     }
@@ -65,16 +74,9 @@ void triePrintAll(node* travel, char *word, int pos) {
     for (int i = 0; i < tSize; ++i)
     {
         if(travel -> next[i]) {
-            if(i >= 0 && i <= 25) {
-                word[pos] = i + 'A';
-            } else if(i >= 26 && i <= 51) {
-                word[pos] = (i + 'a' - 26);
-            } else {
-                word[pos] = i + '0' - 52;
-            }
+            word[pos] = i + 'a';
 
-
-            triePrintAll(travel -> next[i], word, pos + 1);
+            findFrequentWords(travel -> next[i], word, pos + 1);
         }
     }
 }
@@ -86,10 +88,20 @@ void triePrintAll(node* travel, char *word, int pos) {
 char ** topKFrequent(char ** words, int wordsSize, int k, int* returnSize){
 	maxFrequency = 0;
 	indexTrie = 0;
+	Trie* root = trieCreate();
 
 	frequentWords = malloc(wordsSize * sizeof(char));
 	for(int i = 0; i < wordsSize; i++) {
 		frequentWords[i] = malloc(15 * sizeof(char));
+
+		trieInsert(root, words[i]);
 	}
+
+	char temp[15];
+	findFrequentWords(root, temp, 0);
+
+	*returnSize = k;
+
+	return frequentWords;
 }
 
