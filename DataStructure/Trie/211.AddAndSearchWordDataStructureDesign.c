@@ -59,6 +59,7 @@ bool wordDictionarySearch(WordDictionary* travel, char * word) {
 			
 			char transWord[15];
 			// always copy string using function
+			// using function will generate less errors
 			copyStringExclude(transWord, word, i + 1);
 
 			for(int index = 0; index < tSize; index++) {
