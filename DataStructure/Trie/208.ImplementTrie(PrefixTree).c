@@ -3,7 +3,7 @@ const int tSize = 26;
 
 typedef struct Trie {
 	bool endMark;
-	struct Trie* next[26];
+	struct Trie *next[26];
 } Trie;
 
 /** Initialize your data structure here. */
@@ -22,6 +22,10 @@ Trie* trieCreate() {
 
 /** Inserts a word into the trie. */
 void trieInsert(Trie* travel, char *word) {
+	if(NULL == travel) {
+		travel = trieCreate();
+	}
+
 	for (int i = 0; word[i]; i++) {
 		int letter = word[i] - 'a';
 
@@ -36,13 +40,17 @@ void trieInsert(Trie* travel, char *word) {
 }
 
 /** Returns if the word is in the trie. */
-bool trieSearch(Trie* travel, char * word) {
-    for (int i = 0; i < word[i]; i++) {
-		int letter = word[i] - 'a';
+bool trieSearch(Trie* travel, char *word) {
+	if(NULL == travel) {
+		return false;
+	}
 
-		if(NULL == travel -> next[letter]) {
-			return false;
-		}
+    for (int i = 0; word[i]; i++) {
+        int letter = word[i] - 'a';
+
+        if(NULL == travel -> next[letter]) {
+            return false;
+        }
 
 		travel = travel -> next[i];
 	}
@@ -52,6 +60,10 @@ bool trieSearch(Trie* travel, char * word) {
 
 /** Returns if there is any word in the trie that starts with the given prefix. */
 bool trieStartsWith(Trie* travel, char * prefix) {
+	if(NULL == travel) {
+		return false;
+	}
+
 	for (int i = 0; prefix[i]; i++) {
 		int letter = prefix[i] - 'a';
 
