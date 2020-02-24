@@ -27,12 +27,59 @@ void mapSumInsert(MapSum* travel, char * key, int val) {
 	}
 
 	for(int i = 0; key[i]; i++) {
-		
+		int letter = key[i] - 'a';
+
+		if(NULL == travel -> next[letter]) {
+			travel -> next[letter] = mapSumCreate();
+		}
+
+		travel = travel -> next[letter];
 	}
+
+	travel -> endMark = true;
+	travel -> nodeVal = val;
 }
 
-int mapSumSum(MapSum* obj, char * prefix) {
-  
+int findMapSum(MapSum* travel) {
+	if(NULL == travel) {
+		return 0;
+	}
+
+	int sum = travel -> nodeVal;
+
+	for(int i = 0; i < tSize; i++) {
+		if(NULL != travel -> next[i]) {
+			sum += findMapSum(travel -> next[i]);
+		}
+	}
+
+	return sum;
+}
+
+int mapSumSum(MapSum* travel, char * prefix) {
+	if(NULL == travel) {
+		return 0;
+	}
+
+	for(int i = 0; prefix[i]; i++) {
+		int letter = prefix[i] - 'a';
+
+		if(NULL == travel -> next[letter]) {
+			return 0;
+		}
+
+		travel = travel -> next[letter];
+	}
+
+	int sum = travel -> nodeVal;
+
+	for(int i = 0; i < tSize; i++) {
+		if(NULL != travel -> next[i]) {
+			sum += findMapSum(travel -> next[i]);
+		}
+	}
+
+	return sum;
 }
 
 void mapSumFree(MapSum* travel) {
