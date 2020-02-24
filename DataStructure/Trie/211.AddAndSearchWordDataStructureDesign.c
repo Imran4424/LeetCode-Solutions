@@ -58,6 +58,7 @@ bool wordDictionarySearch(WordDictionary* travel, char * word) {
 		if('.' == word[i]) {
 			
 			char transWord[15];
+			// always copy string using function
 			copyStringExclude(transWord, word, i + 1);
 
 			for(int index = 0; index < tSize; index++) {
