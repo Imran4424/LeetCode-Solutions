@@ -1,7 +1,7 @@
 
 
 
-typedef struct {
+typedef struct Trie{
     
 } Trie;
 
