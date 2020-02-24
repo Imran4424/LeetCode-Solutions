@@ -45,21 +45,21 @@ bool trieSearch(Trie* travel, char *word) {
 		return false;
 	}
 
-    for (int i = 0; word[i]; i++) {
-        int letter = word[i] - 'a';
+	for (int i = 0; word[i]; i++) {
+	        int letter = word[i] - 'a';
 
-        if(NULL == travel -> next[letter]) {
-            return false;
-        }
+	        if(NULL == travel -> next[letter]) {
+	            return false;
+	        }
 
-		travel = travel -> next[i];
+		travel = travel -> next[letter];
 	}
 
 	return travel -> endMark;
 }
 
 /** Returns if there is any word in the trie that starts with the given prefix. */
-bool trieStartsWith(Trie* travel, char * prefix) {
+bool trieStartsWith(Trie* travel, char *prefix) {
 	if(NULL == travel) {
 		return false;
 	}
