@@ -12,18 +12,31 @@ typedef struct MapSum{
 
 MapSum* mapSumCreate() {
 	MapSum* root = malloc(sizeof(MapSum));
+	root -> endMark = false;
+	root -> nodeVal = 0;
+	for (int i = 0; i < tSize; i++) {
+		root -> next[i] = NULL;
+	}
+
+	return root;
 }
 
-void mapSumInsert(MapSum* obj, char * key, int val) {
-  
+void mapSumInsert(MapSum* travel, char * key, int val) {
+	if(NULL == travel) {
+		travel = mapSumCreate();
+	}
+
+	for(int i = 0; key[i]; i++) {
+		
+	}
 }
 
 int mapSumSum(MapSum* obj, char * prefix) {
   
 }
 
-void mapSumFree(MapSum* obj) {
-    
+void mapSumFree(MapSum* travel) {
+	free(travel);
 }
 
 /**
