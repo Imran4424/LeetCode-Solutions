@@ -38,6 +38,15 @@ void wordDictionaryAddWord(WordDictionary* travel, char * word) {
 	travel -> endMark = true;
 }
 
+void copyStringExclude(char *dest, char *source, int index) {
+	int i = 0;
+	for (; source[index]; i++) {
+		dest[i] = source[index++];
+	}
+
+	dest[i] = '\0';
+}
+
 /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
 bool wordDictionarySearch(WordDictionary* travel, char * word) {
 	if(NULL == travel) {
@@ -47,22 +56,19 @@ bool wordDictionarySearch(WordDictionary* travel, char * word) {
 	int i;
 	for (i = 0; word[i]; i++) {
 		if('.' == word[i]) {
-			bool found = false;
-
-			char 
+			
+			char transWord[15];
+			copyStringExclude(transWord, word, i + 1);
 
 			for(int index = 0; index < tSize; index++) {
 				if(NULL != travel -> next[index]) {
-					found = true;
-					travel = travel -> next[index];
-					break;
+					if(wordDictionarySearch(travel -> next[index], transWord)) {
+						return true;
+					}	
 				}
 			}
 
-			if(found) {
-				continue;
-			}
-
+			
 			return false;
 		}
 
@@ -75,10 +81,7 @@ bool wordDictionarySearch(WordDictionary* travel, char * word) {
 		travel = travel -> next[letter];
 	}
 
-	if('.' == word[i - 1]) {
-		return true;
-	}
-
+	
 	return travel -> endMark;
 }
 
