@@ -13,7 +13,7 @@ Trie* trieCreate() {
 	Trie* root = malloc(sizeof(Trie));
 
 	root -> endMark = false;
-	frequency = 0;
+	root -> frequency = 0;
 
 	for (int i = 0; i < tSize; ++i) {
 		root -> next[i] = NULL;
@@ -60,15 +60,14 @@ void copyString(char *dest, char *source) {
 char **frequentWords;
 int indexTrie;
 
-void findFrequentWords(node* travel, char *word, int pos) {
+void findFrequentWords(Trie* travel, char *word, int pos) {
     if(NULL == travel) {
         return;
     }
 
     if(travel -> endMark && travel -> frequency == maxFrequency) {
         word[pos] = '\0';
-        word = reverseString(word, pos);
-        copyString(arrTrie[indexTrie++], word);
+        copyString(frequentWords[indexTrie++], word);
     }
 
     for (int i = 0; i < tSize; ++i)
@@ -90,14 +89,14 @@ char ** topKFrequent(char ** words, int wordsSize, int k, int* returnSize){
 	indexTrie = 0;
 	Trie* root = trieCreate();
 
-	frequentWords = malloc(wordsSize * sizeof(char));
+	frequentWords = (int**) malloc(wordsSize * sizeof(char));
 	for(int i = 0; i < wordsSize; i++) {
-		frequentWords[i] = malloc(15 * sizeof(char));
+		frequentWords[i] = (int*) malloc(25 * sizeof(char));
 
 		trieInsert(root, words[i]);
 	}
 
-	char temp[15];
+	char temp[25];
 	findFrequentWords(root, temp, 0);
 
 	*returnSize = k;
