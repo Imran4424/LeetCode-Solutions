@@ -1,50 +1,64 @@
 
-int Absolute(int x) {
-	if(x < 0) {
-		return -x;
-	}
+void merge(int *arr, int *left, int leftSize, int *right, int rightSize) {
+    int i = 0, j = 0, index = 0;
 
-	return x;
+    while(i < leftSize && j < rightSize) {
+        if(left[i] < right[j]) {
+            arr[index] = left[i++];
+        } else {
+            arr[index] = right[j++];
+        }
+
+        index++;
+    }
+
+    while(i < leftSize) {
+        arr[index++] = left[i++];
+    }
+
+    while(j < rightSize) {
+        arr[index++] = right[j++];
+    }
 }
 
+void mergeSort(int *arr, int aSize) {
+    if(aSize < 2) {
+        return;
+    }
+
+    int mid = aSize / 2;
+    int left[mid];
+    int right[aSize - mid];
+
+    int index = 0;
+
+    for(int i = 0; i < mid; i++) {
+        left[i] = arr[index++];
+    }
+
+    for(int i = 0; i < aSize - mid; i++) {
+        right[i] = arr[index++];
+    }
+
+    mergeSort(left, mid);
+    mergeSort(right, aSize - mid);
+
+    merge(arr, left, mid, right, aSize - mid);
+}
+
+
 int kthSmallest(int** matrix, int matrixSize, int* matrixColSize, int target){
-	int rowSize = matrixSize;
-	int colSize = *matrixColSize;
+	int arr[matrixSize * matrixSize];
+	int index = 0;
 
-	int lowRow = 1, highRow = rowSize;
-	int lowCol = 1, highCol = colSize;
-
-	int midRow, midCol, calRow;
-
-	while(1) {
-		midRow = lowRow + (highRow - lowRow) / 2;
-
-		calRow = (midRow * colSize);
-		int diffRow = Absolute(calRow - target);
-
-		if(diffRow < colSize) {
-			break;
-		} else if(target > calRow) {
-			lowRow = midRow + 1;
-		} else {
-			highRow = midRow - 1;
-		}
-	}
-	
-	while(1) {
-		midCol = lowCol + (highCol - lowCol) / 2;
-
-		int calTotal = calRow + midCol;
-
-		if(target == calTotal) {
-			break;
-		} else if (target > calTotal) {
-			lowCol = midCol + 1;
-		} else {
-			highCol = midCol - 1;
+	for(int i = 0; i < matrixSize; i++) {
+		for(int j = 0; j < *matrixColSize; j++) {
+			arr[index++] = matrix[i][j];
 		}
 	}
 
-	return matrix[midRow - 1][midCol - 1];
+	mergeSort(arr, index);
+
+	return arr[target - 1];
 }
 
