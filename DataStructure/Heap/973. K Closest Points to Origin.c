@@ -76,5 +76,7 @@ int** kClosest(int** points, int pointsSize, int* pointsColSize, int k, int* ret
 
 	*returnSize = k;
 	*returnColumnSizes = pointsColSize;
+
+	return points;
 }
 
