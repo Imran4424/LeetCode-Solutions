@@ -58,7 +58,23 @@ void mergeSort(DistanceList *arr, int aSize) {
  * The sizes of the arrays are returned as *returnColumnSizes array.
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
-int** kClosest(int** points, int pointsSize, int* pointsColSize, int K, int* returnSize, int** returnColumnSizes){
+int** kClosest(int** points, int pointsSize, int* pointsColSize, int k, int* returnSize, int** returnColumnSizes){
+	DistanceList myDistanceList[pointsSize];
 
+	for(int i = 0 ; i < pointsSize; i++) {
+		myDistanceList[i].pointX = points[i][0];
+		myDistanceList[i].pointY = points[i][1];
+		myDistanceList[i].distance = points[i][0] * points[i][0] + points[i][1] * points[i][1];
+	}
+
+	mergeSort(myDistanceList, pointsSize);
+
+	for(int i = 0; i < k; i++) {
+		points[i][0] = myDistanceList[i].pointX;
+		points[i][1] = myDistanceList[i].pointY;
+	}
+
+	*returnSize = k;
+	*returnColumnSizes = pointsColSize;
 }
 
