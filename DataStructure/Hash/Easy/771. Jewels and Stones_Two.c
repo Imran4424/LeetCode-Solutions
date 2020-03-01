@@ -44,11 +44,35 @@ HashTable* insertHash(HashTable *head, char letter) {
 	return head;
 }
 
-bool searchHash()
+bool searchHash(HashTable *travel, char letter) {
+	while(NULL != travel) {
+		if(letter == travel -> ch) {
+			return true;
+		}
+	}
+
+	return false;
+}
 
 int numJewelsInStones(char * jewels, char * stones) {
 	HashTable *head[26];
 	initHash(head);
 
+	for(int i = 0; jewels[i]; i++) {
+		int key = hashKey(jewels[i]);
 
+		head[key] = insertHash(head[key], jewels[i]);
+	}
+
+	int jewelCount = 0;
+
+	for(int i = 0; stones[i]; i++) {
+		int key = hashKey(stones[i]);
+
+		if(searchHash(head[key], stones[i])) {
+			jewelCount++;
+		}
+	}
+
+	return jewelCount;
 }
