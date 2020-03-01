@@ -3,7 +3,7 @@ typedef struct HashTable
 {
 	char ch;
 	struct HashTable *next;
-};
+} HashTable;
 
 const int hashSize = 26;
 
@@ -35,16 +35,16 @@ void initHash(HashTable **head) {
 	}
 }
 
-HashTable* insertHash(HashTable *head, char letter) {
+HashTable* hashInsert(HashTable *head, char letter) {
 	HashTable* temp = hashCreate(letter);
-	temp -> NULL = head;
+	temp -> next = head;
 
 	head = temp;
 
 	return head;
 }
 
-bool searchHash(HashTable *travel, char letter) {
+bool hashSearch(HashTable *travel, char letter) {
 	while(NULL != travel) {
 		if(letter == travel -> ch) {
 			return true;
@@ -61,7 +61,7 @@ int numJewelsInStones(char * jewels, char * stones) {
 	for(int i = 0; jewels[i]; i++) {
 		int key = hashKey(jewels[i]);
 
-		head[key] = insertHash(head[key], jewels[i]);
+		head[key] = hashInsert(head[key], jewels[i]);
 	}
 
 	int jewelCount = 0;
@@ -69,7 +69,7 @@ int numJewelsInStones(char * jewels, char * stones) {
 	for(int i = 0; stones[i]; i++) {
 		int key = hashKey(stones[i]);
 
-		if(searchHash(head[key], stones[i])) {
+		if(hashSearch(head[key], stones[i])) {
 			jewelCount++;
 		}
 	}
