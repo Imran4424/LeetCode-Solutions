@@ -49,13 +49,15 @@ bool hashSearch(HashTable *travel, char letter) {
 		if(letter == travel -> ch) {
 			return true;
 		}
+
+		travel = travel -> next;
 	}
 
 	return false;
 }
 
 int numJewelsInStones(char * jewels, char * stones) {
-	HashTable *head[26];
+	HashTable *head[hashSize];
 	initHash(head);
 
 	for(int i = 0; jewels[i]; i++) {
