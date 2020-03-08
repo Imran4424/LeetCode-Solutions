@@ -136,9 +136,9 @@ char ** uncommonFromSentences(char * first, char * second, int* returnSize){
         }
         tokenString(second, secondToken, &secondIndex);
 
-        char** uncommonWords = malloc(20 * sizeof(char *));
+        char** uncommonWords = malloc(tokenSize * sizeof(char *));
         int uIndex = 0;
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < tokenSize; i++) {
                 uncommonWords[i] = malloc(15 * sizeof(char));
         }
 

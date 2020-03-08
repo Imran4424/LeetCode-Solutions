@@ -55,7 +55,7 @@ HashTable* insertHash(HashTable *head, char *word) {
         HashTable* previous = NULL;
 
         while(NULL != travel) {
-                if(0 == compareString(head -> word, word)) {
+                if(0 == compareString(travel -> word, word)) {
                         travel -> frequency++;
                         return head;
                 }
@@ -140,7 +140,7 @@ char ** uncommonFromSentences(char * first, char * second, int* returnSize){
                 head[key] = insertHash(head[key], secondToken[i]);
         }
 
-        char** uncommonWords = malloc(20 * sizeof(char *));
+        char** uncommonWords = malloc(tokenSize * sizeof(char *));
         int uIndex = 0;
         for(int i = 0; i < 20; i++) {
                 uncommonWords[i] = malloc(15 * sizeof(char));
