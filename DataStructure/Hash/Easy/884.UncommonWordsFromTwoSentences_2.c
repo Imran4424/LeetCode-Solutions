@@ -7,8 +7,6 @@ typedef struct HashTable {
         struct HashTable* next;
 } HashTable;
 
-HashTable **head;
-
 int hashKey(char *word) {
         long long int asciiSum = 0;
 
@@ -95,9 +93,6 @@ void tokenString(char *sentence, char **tokenArr, int *index) {
         for(int i = 0; sentence[i]; i++) {
                 if(' ' == sentence[i]) {
                         tokenArr[(*index)][x] = '\0';
-                        key = hashKey(tokenArr[(*index)]);
-                        //printf("%d %s\n", key, tokenArr[(*index)]);
-                        head[key] = insertHash(head[key], tokenArr[(*index)]);
                         x = 0;
                         (*index)++;
                         continue;
@@ -107,9 +102,6 @@ void tokenString(char *sentence, char **tokenArr, int *index) {
         }
 
         tokenArr[(*index)][x] = '\0';
-        key = hashKey(tokenArr[(*index)]);
-        //printf("%d %s\n", key, tokenArr[(*index)]);
-        head[key] = insertHash(head[key], tokenArr[(*index)]);
         (*index)++;
 }
 
@@ -117,7 +109,7 @@ void tokenString(char *sentence, char **tokenArr, int *index) {
  * Note: The returned array must be malloced, assume caller calls free().
  */
 char ** uncommonFromSentences(char * first, char * second, int* returnSize){
-        head = malloc(hashSize * sizeof(HashTable*));
+        HashTable* head[hashSize];
         initHash(head);
 
         int tokenSize = 40;
@@ -135,6 +127,18 @@ char ** uncommonFromSentences(char * first, char * second, int* returnSize){
                 secondToken[i] = malloc(15 * sizeof(char));
         }
         tokenString(second, secondToken, &secondIndex);
+
+        int key;
+
+        for(int i = 0; i < firstIndex; i++) {
+                key = hashKey(firstToken[i]);
+                head[key] = insertHash(head[key], firstToken[i]);
+        }
+
+        for(int i = 0; i < secondIndex; i++) {
+                key = hashKey(secondToken[i]);
+                head[key] = insertHash(secondToken);
+        }
 
         char** uncommonWords = malloc(20 * sizeof(char *));
         int uIndex = 0;
