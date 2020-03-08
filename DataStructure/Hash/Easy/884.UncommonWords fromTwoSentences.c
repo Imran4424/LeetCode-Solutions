@@ -57,7 +57,7 @@ HashTable* insertHash(HashTable *head, char *word) {
         HashTable* previous = NULL;
 
         while(NULL != travel) {
-                if(0 == compareString(head -> word, word)) {
+                if(0 == compareString(travel -> word, word)) {
                         travel -> frequency++;
                         return head;
                 }
@@ -96,7 +96,6 @@ void tokenString(char *sentence, char **tokenArr, int *index) {
                 if(' ' == sentence[i]) {
                         tokenArr[(*index)][x] = '\0';
                         key = hashKey(tokenArr[(*index)]);
-                        //printf("%d %s\n", key, tokenArr[(*index)]);
                         head[key] = insertHash(head[key], tokenArr[(*index)]);
                         x = 0;
                         (*index)++;
