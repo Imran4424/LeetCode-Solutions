@@ -107,7 +107,6 @@ void tokenString(char *sentence, char **tokenArr, int *index) {
 
         tokenArr[(*index)][x] = '\0';
         key = hashKey(tokenArr[(*index)]);
-        //printf("%d %s\n", key, tokenArr[(*index)]);
         head[key] = insertHash(head[key], tokenArr[(*index)]);
         (*index)++;
 }
