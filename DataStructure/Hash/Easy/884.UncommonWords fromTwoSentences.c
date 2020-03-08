@@ -2,7 +2,7 @@
 const int hashSize = 1000;
 
 typedef struct HashTable {
-        char word[15];
+        char word[20];
         int frequency;
         struct HashTable* next;
 } HashTable;
@@ -120,26 +120,26 @@ char ** uncommonFromSentences(char * first, char * second, int* returnSize){
         head = malloc(hashSize * sizeof(HashTable*));
         initHash(head);
 
-        int tokenSize = 40;
+        int tokenSize = 100;
         
         char **firstToken = malloc(tokenSize * sizeof(char *));
         int firstIndex = 0;
         for (int i = 0; i < tokenSize; i++) {
-                firstToken[i] = malloc(15 * sizeof(char));
+                firstToken[i] = malloc(20 * sizeof(char));
         }
         tokenString(first, firstToken, &firstIndex);
 
         char **secondToken = malloc(tokenSize * sizeof(char *));
         int secondIndex = 0;
         for (int i = 0; i < tokenSize; i++) {
-                secondToken[i] = malloc(15 * sizeof(char));
+                secondToken[i] = malloc(20 * sizeof(char));
         }
         tokenString(second, secondToken, &secondIndex);
 
         char** uncommonWords = malloc(tokenSize * sizeof(char *));
         int uIndex = 0;
         for(int i = 0; i < tokenSize; i++) {
-                uncommonWords[i] = malloc(15 * sizeof(char));
+                uncommonWords[i] = malloc(20 * sizeof(char));
         }
 
         for(int i = 0; i < firstIndex; i++) {
