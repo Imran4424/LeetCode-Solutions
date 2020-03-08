@@ -137,7 +137,7 @@ char ** uncommonFromSentences(char * first, char * second, int* returnSize){
 
         for(int i = 0; i < secondIndex; i++) {
                 key = hashKey(secondToken[i]);
-                head[key] = insertHash(secondToken);
+                head[key] = insertHash(head[key], secondToken[i]);
         }
 
         char** uncommonWords = malloc(20 * sizeof(char *));
