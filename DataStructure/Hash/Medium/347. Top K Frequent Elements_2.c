@@ -147,7 +147,6 @@ HashTable* deleteMaxElement() {
 void heapBuilder(HashTable* travel) {
         while(NULL != travel) {
                 insertHeap(travel);
-                printf("%d %d\n", travel -> number, travel -> frequency);
                 travel = travel -> next;
         }
 }
