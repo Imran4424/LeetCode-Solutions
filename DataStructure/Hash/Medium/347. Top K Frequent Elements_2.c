@@ -174,7 +174,6 @@ int* topKFrequent(int* nums, int numsSize, int k, int* returnSize){
 
         for(int i = 0; i < k; i++) {
                 HashTable* maxNode = deleteMaxElement();
-                printf("%d %d\n", maxNode -> number, maxNode -> frequency);
                 topElement[i] = maxNode -> number;
         }
 
