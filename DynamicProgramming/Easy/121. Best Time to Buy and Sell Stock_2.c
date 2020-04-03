@@ -1,5 +1,7 @@
 /*
 	One Pass
+
+	Not completed yet
 */
 
 int maxProfit(int* prices, int pricesSize) {
@@ -16,12 +18,15 @@ int maxProfit(int* prices, int pricesSize) {
 		return 0;
 	}
 
-	int maxAfterMin = firstMinBeforeMax;
+	int maxAfterFirstMin = firstMinBeforeMax;
+	int minAfterFirstMin = firstMinBeforeMax;
 
 	for(; i < pricesSize; i++) {
 		if(prices[i] > maxAfterMin) {
 			maxAfterMin = prices[i];
 		}
+
+		if()
 	}
 
 	return maxAfterMin - firstMinBeforeMax;
