@@ -10,5 +10,5 @@ int climbStairs(int number) {
 		return pathCount[number] = 1;
 	}
 
-	return pathCount[number] = pathCount(number - 1) + pathCount(number - 2);
+	return pathCount[number] = climbStairs(number - 1) + climbStairs(number - 2);
 }
