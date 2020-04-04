@@ -3,6 +3,7 @@
 	
 	if the initialization value is 0
 
+	otherwise this initialization won't work
 */
 int pathCount[100] = {0};
 
