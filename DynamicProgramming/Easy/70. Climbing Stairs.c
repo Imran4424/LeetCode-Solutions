@@ -6,6 +6,7 @@
 	otherwise this initialization won't work
 */
 int pathCount[1000] = {-1};
+// this initialization don't work
 
 int climbStairsRecursive(int number) {
 	if(-1 != pathCount[number]) {
