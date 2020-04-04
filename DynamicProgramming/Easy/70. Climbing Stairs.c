@@ -5,6 +5,7 @@
 
 	otherwise this initialization won't work
 */
+
 int pathCount[1000] = {-1};
 
 int climbStairsRecursive(int number) {
