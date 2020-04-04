@@ -1,5 +1,8 @@
 /*
 	this type of initialization only works
+	
+	if the initialization value is 0
+
 */
 int pathCount[100] = {0};
 
