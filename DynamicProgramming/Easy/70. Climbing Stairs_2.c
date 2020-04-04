@@ -1,4 +1,6 @@
-
+/*
+	this type of initia
+*/
 int pathCount[100] = {0};
 
 int climbStairs(int number) {
