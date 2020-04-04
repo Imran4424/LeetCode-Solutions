@@ -5,6 +5,7 @@
 
 	otherwise this initialization won't work
 */
+
 int pathCount[100] = {0};
 
 int climbStairs(int number) {
