@@ -84,6 +84,6 @@ struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
 	high = R;
 	low = L;
 
-	return root;
+	return preOrderDelete(root);
 }
 
