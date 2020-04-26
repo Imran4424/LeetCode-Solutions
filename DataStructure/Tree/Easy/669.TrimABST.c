@@ -75,6 +75,7 @@ struct TreeNode* preOrderDelete(struct TreeNode* root) {
 	}
 
 	root -> left = preOrderDelete(root -> left);
+	root -> right = preOrderDelete(root -> right);
 }
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
