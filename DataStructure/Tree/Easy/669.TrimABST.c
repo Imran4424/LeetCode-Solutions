@@ -87,7 +87,18 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 	}
 
 	if(target < root -> val) {
-		
+		root -> left = deleteNode(root -> left, target);
+	} else if(target > root -> val) {
+		root -> right = deleteNode(root -> right, target);
+	} else {
+		// no child
+		if(NULL == root -> left && NULL == root -> right) {
+			return NULL;
+		} else if(NULL == root -> left) {
+			root = root -> right;
+		} else if(NULL == root -> right) {
+			root = root -> left;
+		}
 	}
 }
 
