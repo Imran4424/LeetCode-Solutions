@@ -23,7 +23,7 @@ void valueToString(int num) {
 	int index  = 0;
 
 	if(0 == num) {
-		nodeStr[strIndex] = '0';
+		nodeStr[strIndex++] = '0';
 
 		return;
 	}
@@ -69,7 +69,7 @@ void treeToString(struct TreeNode* root) {
 
 
 char * tree2str(struct TreeNode* root) {
-	nodeStr = malloc(5000 * sizeof(char));
+	nodeStr = malloc(24000 * sizeof(char));
 	strIndex = 0;
 
 	treeToString(root);
