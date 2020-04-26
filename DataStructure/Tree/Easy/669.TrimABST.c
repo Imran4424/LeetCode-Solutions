@@ -65,6 +65,18 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 	return root;
 }
 
+struct TreeNode* preOrderDelete(struct TreeNode* root) {
+	if(NULL == root) {
+		return;
+	}
+
+	if(isDeleteAble(root -> val)) {
+		root = deleteNode(root, root -> val);
+	}
+
+	root -> left = preOrderDelete(root -> left);
+}
+
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
 	high = R;
 	low = L;
