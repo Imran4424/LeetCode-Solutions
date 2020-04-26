@@ -15,7 +15,11 @@ void treeToString(struct TreeNode* root) {
 		return;
 	}
 
-	nodeStr[strIndex++] = char(root -> val) + 48;
+	nodeStr[strIndex++] = (char)root -> val + 48;
+
+	if(NULL == root -> left && NULL == root -> right) {
+		return;
+	}
 
 	nodeStr[strIndex++] ='(';
 	treeToString(root -> left);
