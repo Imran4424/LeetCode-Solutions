@@ -22,6 +22,12 @@ void valueToString(int num) {
 	char numData[7];
 	int index  = 0;
 
+	if(0 == num) {
+		nodeStr[strIndex] = '0';
+
+		return;
+	}
+
 	while(num != 0) {
 		numData[index++] = (int) num % 10 + 48;
 
