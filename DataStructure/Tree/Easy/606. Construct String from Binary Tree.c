@@ -25,6 +25,10 @@ void treeToString(struct TreeNode* root) {
 	treeToString(root -> left);
 	nodeStr[strIndex++] = ')';
 
+	if(NULL == root -> right) {
+		return;
+	}
+
 	nodeStr[strIndex++] ='(';
 	treeToString(root -> right);
 	nodeStr[strIndex++] = ')';
