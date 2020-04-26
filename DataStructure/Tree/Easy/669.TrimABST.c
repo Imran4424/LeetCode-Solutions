@@ -66,11 +66,6 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 }
 
 struct TreeNode* preOrderDelete(struct TreeNode* root) {
-	
-	while(NULL != root && isDeleteAble(root -> val)) {
-		root = deleteNode(root, root -> val);
-	}
-
 	// check
 	if(NULL == root) {
 		return root;
@@ -78,6 +73,10 @@ struct TreeNode* preOrderDelete(struct TreeNode* root) {
 
 	root -> left = preOrderDelete(root -> left);
 	root -> right = preOrderDelete(root -> right);
+	
+	while(NULL != root && isDeleteAble(root -> val)) {
+		root = deleteNode(root, root -> val);
+	}
 
 	return root;
 }
