@@ -14,11 +14,11 @@ struct TreeNode* trimBST(struct TreeNode* root, int high, int low) {
 	}
 
 	if(low < root -> val) {
-		root = trimBST(root -> left, high, low);
+		return trimBST(root -> left, high, low);
 	}
 
 	if(high > root -> val) {
-		root = trimBST(root -> right, high, low);
+		return trimBST(root -> right, high, low);
 	}
 
 	root -> left = trimBST(root -> left, high, low);
