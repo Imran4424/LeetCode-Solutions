@@ -9,6 +9,14 @@
 
 int high, low;
 
+bool isDeleteAble(int num) {
+	if(num < low || num > high) {
+		return true;
+	}
+
+	return false;
+}
+
 int MinValue(struct TreeNode* root) {
 	if(NULL == root -> left) {
 		return root -> val;
@@ -58,25 +66,8 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 }
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
-	if(NULL == root) {
-		return root;
-	}
-
-	while(NULL != root && (root -> val < L || root -> val > R)) {
-		if(root -> val < L) {
-			root = deleteNodeLeft(root, root -> val);
-		} else {
-			root = deleteNodeRight(root, root -> val);
-		}
-		
-	}
-
-	if(NULL == root) {
-		return root;
-	}
-
-	root -> left = trimBST(root -> left, L, R);
-	root -> right = trimBST(root -> right, L, R);
+	high = R;
+	low = L;
 
 	return root;
 }
