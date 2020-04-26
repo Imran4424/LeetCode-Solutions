@@ -81,6 +81,16 @@ struct TreeNode* deleteNodeRight(struct TreeNode* root, int target) {
 	return root;
 }
 
+struct TreeNode* deleteNode (struct TreeNode* root, int target) {
+	if(NULL == root) {
+		return root;
+	}
+
+	if(target < root -> val) {
+		
+	}
+}
+
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
 	if(NULL == root) {
 		return root;
