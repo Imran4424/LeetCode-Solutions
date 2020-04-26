@@ -8,9 +8,11 @@
  */
 
 char *nodeStr;
+int index;
 
 
 char * tree2str(struct TreeNode* t) {
-	nodeStr = malloc(sizeof(char));
+	nodeStr = malloc(5000 * sizeof(char));
+	index = 0;
 }
 
