@@ -99,9 +99,15 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 		} else if(NULL == root -> right) {
 			root = root -> left;
 		} else {
-			
+			int replaceVal = MaxValue(root -> left);
+
+			root -> val = replaceVal;
+
+			root = deleteNode(root, replaceVal);
 		}
 	}
+
+	return root;
 }
 
 struct TreeNode* trimBST(struct TreeNode* root, int L, int R){
