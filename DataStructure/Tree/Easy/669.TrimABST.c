@@ -7,6 +7,8 @@
  * };
  */
 
+int high, low;
+
 int MinValue(struct TreeNode* root) {
 	if(NULL == root -> left) {
 		return root -> val;
@@ -22,11 +24,6 @@ int MaxValue(struct TreeNode* root) {
 
 	return MaxValue(root -> right);
 }
-
-
-
-
-
 
 
 struct TreeNode* deleteNode (struct TreeNode* root, int target) {
