@@ -8,11 +8,33 @@
  */
 
 char *nodeStr;
-int index;
+int strIndex;
+
+void treeToString(struct TreeNode* root) {
+	if(NULL == root) {
+		return;
+	}
+
+	nodeStr[strIndex++] = char(root -> val) + 48;
+
+	nodeStr[strIndex++] ='(';
+	treeToString(root -> left);
+	nodeStr[strIndex++] = ')';
+
+	nodeStr[strIndex++] ='(';
+	treeToString(root -> right);
+	nodeStr[strIndex++] = ')';
+}
 
 
-char * tree2str(struct TreeNode* t) {
+char * tree2str(struct TreeNode* root) {
 	nodeStr = malloc(5000 * sizeof(char));
-	index = 0;
+	strIndex = 0;
+
+	treeToString(root);
+
+	nodeStr[strIndex] = '\0';
+
+	return nodeStr;
 }
 
