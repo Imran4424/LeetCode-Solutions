@@ -98,6 +98,8 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 			root = root -> right;
 		} else if(NULL == root -> right) {
 			root = root -> left;
+		} else {
+			
 		}
 	}
 }
