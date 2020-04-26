@@ -99,11 +99,13 @@ struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 		} else if(NULL == root -> right) {
 			root = root -> left;
 		} else {
+			// both child
+			// taking the max vale from left sub tree
 			int replaceVal = MaxValue(root -> left);
 
 			root -> val = replaceVal;
 
-			root = deleteNode(root, replaceVal);
+			root -> left = deleteNode(root -> left, replaceVal);
 		}
 	}
 
