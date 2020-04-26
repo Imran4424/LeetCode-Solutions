@@ -18,6 +18,21 @@ int Absolute(int x) {
 	return x;
 }
 
+void valueToString(int num) {
+	char numData[7];
+	int index  = 0;
+
+	while(num != 0) {
+		numData[index++] = (int) num % 10 + 48;
+
+		num = num / 10;
+	}
+
+	for(int i = index - 1; i >= 0; i--) {
+		nodeStr[strIndex++] = numData[i];
+	}
+}
+
 void treeToString(struct TreeNode* root) {
 	if(NULL == root) {
 		return;
@@ -27,7 +42,7 @@ void treeToString(struct TreeNode* root) {
 		nodeStr[strIndex++] = '-';
 	}
 
-	nodeStr[strIndex++] = (char) Absolute(root -> val) + 48;
+	valueToString(Absolute(root -> val));
 
 	if(NULL == root -> left && NULL == root -> right) {
 		return;
