@@ -23,5 +23,7 @@ struct TreeNode* trimBST(struct TreeNode* root, int high, int low) {
 
 	root -> left = trimBST(root -> left, high, low);
 	root -> right =trimBST(root -> right, high, low);
+
+	return root;
 }
 
