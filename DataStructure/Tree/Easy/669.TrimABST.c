@@ -25,61 +25,9 @@ int MaxValue(struct TreeNode* root) {
 
 
 
-struct TreeNode* deleteNodeLeft(struct TreeNode* root, int target) {
-	if(NULL == root) {
-		return root;
-	}
 
-	if(target > root -> val) {
-		root -> right = deleteNodeLeft(root -> right, target);
-	} else if(target < root -> val) {
-		root -> left = deleteNodeLeft(root -> left, target);
-	} else {
-		if(NULL == root -> left && NULL == root -> right) {
-			root = NULL;
-		} else if(NULL == root -> left) {
-			root = root -> right;
-		} else if(NULL == root -> right) {
-			root = root -> left;
-		} else {
-			int replaceVal = MinValue(root -> right);
 
-			root -> val = replaceVal;
 
-			root -> right = deleteNodeLeft(root -> right, replaceVal);
-		}
-	}
-
-	return root;
-}
-
-struct TreeNode* deleteNodeRight(struct TreeNode* root, int target) {
-	if(NULL == root) {
-		return root;
-	}
-
-	if(target > root -> val) {
-		root -> right = deleteNodeRight(root -> right, target);
-	} else if(target < root -> val) {
-		root -> left = deleteNodeRight(root -> left, target);
-	} else {
-		if(NULL == root -> left && NULL == root -> right) {
-			root = NULL;
-		} else if(NULL == root -> left) {
-			root = root -> right;
-		} else if(NULL == root -> right) {
-			root = root -> left;
-		} else {
-			int replaceVal = MaxValue(root -> left);
-
-			root -> val = replaceVal;
-
-			root -> right = deleteNodeRight(root -> right, replaceVal);
-		}
-	}
-
-	return root;
-}
 
 struct TreeNode* deleteNode (struct TreeNode* root, int target) {
 	if(NULL == root) {
