@@ -7,6 +7,15 @@
  * };
  */
 
+int tIndex;
+
+void postOrder(struct TreeNode* root, int* values) {
+	if(NULL == root) {
+		return;
+	}
+
+	
+}
 
 /**
  * Note: The returned array must be malloced, assume caller calls free().
