@@ -22,5 +22,7 @@ void getValues(struct TreeNode* root, int* values) {
 
 
 int minDiffInBST(struct TreeNode* root){
+	tIndex = 0;
 
+	int *values = malloc(1000 * sizeof(int));
 }
