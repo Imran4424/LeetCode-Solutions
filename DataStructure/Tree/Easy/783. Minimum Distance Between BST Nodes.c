@@ -7,9 +7,11 @@
  * };
  */
 
-int tIndex;
+typedef long long int lli;
 
-void getValues(struct TreeNode* root, int* values) {
+lli tIndex;
+
+void getValues(struct TreeNode* root, lli* values) {
 	if(NULL == root) {
 		return;
 	}
@@ -20,7 +22,7 @@ void getValues(struct TreeNode* root, int* values) {
 	getValues(root -> right, values);
 }
 
-int Absolute(int x) {
+lli Absolute(lli x) {
 	if(x < 0) {
 		return -x;
 	}
@@ -31,15 +33,15 @@ int Absolute(int x) {
 int minDiffInBST(struct TreeNode* root){
 	tIndex = 0;
 
-	int *values = malloc(1000 * sizeof(int));
+	lli *values = malloc(1000 * sizeof(lli));
 
 	getValues(root, values);
 
-	int minDiff = 32000;
+	lli minDiff = 32000;
 
-	for(int i = 0; i < values; i++) {
-		for(int j = i + 1; j < values; j++) {
-			int currentDiff = Absolute(values[i] - values[j]);
+	for(lli i = 0; i < values; i++) {
+		for(lli j = i + 1; j < values; j++) {
+			lli currentDiff = Absolute(values[i] - values[j]);
 
 			if(currentDiff < minDiff) {
 				minDiff = currentDiff;
