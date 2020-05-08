@@ -35,7 +35,7 @@ int** floodFill(int** image, int imageSize, int* imageColSize, int sr, int sc, i
 	sizeX = imageSize;
 	sizeY = imageColSize;
 
-	
+	floodFillHelper(imageSize, sr, sc, newColor);
 
 	*returnSize = imageSize;
 	*returnColumnSizes = returnSize;
