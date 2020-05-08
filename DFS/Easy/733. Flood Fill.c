@@ -33,11 +33,11 @@ void floodFillHelper(int** image, int x, int y, int newColor) {
  */
 int** floodFill(int** image, int imageSize, int* imageColSize, int sr, int sc, int newColor, int* returnSize, int** returnColumnSizes){
 	sizeX = imageSize;
-	sizeY = imageColSize;
+	sizeY = *imageColSize;
 
-	floodFillHelper(imageSize, sr, sc, newColor);
+	floodFillHelper(image, sr, sc, newColor);
 
-	*returnSize = imageSize;
-	*returnColumnSizes = returnSize;
+	returnSize = &sizeX;
+	*returnColumnSizes = &sizeY;
 	return image;
 }
