@@ -47,4 +47,15 @@ int islandPerimeter(int** grid, int gridSize, int* gridColSize){
 	perimeter = 0;
 	maxX = gridSize;
 	maxY = *gridColSize;
+
+	for(int i = 0; i < maxX; i++) {
+		for(int j = 0; j < maxY; j++) {
+			if(1 == grid[i][j]) {
+				perimeterCounting(grid, x, y);
+				break;
+			}
+		}
+	}
+
+	return perimeter;
 }
