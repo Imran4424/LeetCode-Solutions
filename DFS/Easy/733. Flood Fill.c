@@ -1,6 +1,7 @@
 
 
 int sizeX, sizeY;
+int activeVal;
 
 void floodFillHelper(int** image, int x, int y, int newColor) {
 	image[x][y] = newColor;
@@ -34,10 +35,11 @@ void floodFillHelper(int** image, int x, int y, int newColor) {
 int** floodFill(int** image, int imageSize, int* imageColSize, int sr, int sc, int newColor, int* returnSize, int** returnColumnSizes){
 	sizeX = imageSize;
 	sizeY = *imageColSize;
+	activeVal = image[sr][sc];
 
 	floodFillHelper(image, sr, sc, newColor);
 
-	returnSize = &sizeX;
-	*returnColumnSizes = &sizeY;
+	*returnSize = imageSize;
+	*returnColumnSizes = imageColSize;
 	return image;
 }
