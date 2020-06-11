@@ -12,4 +12,15 @@ bool* kidsWithCandies(int* candies, int candiesSize, int extraCandies, int* retu
 			maxCandie = candies[i];
 		}
 	}
+
+	for(int i = 0; i < candiesSize; i++) {
+		if(candies[i] + extraCandies >= maxCandie) {
+			canGreatest[i] = true;
+		} else {
+			canGreatest[i] = false;
+		}
+	}
+
+	*returnSize = candiesSize;
+	return canGreatest;
 }
