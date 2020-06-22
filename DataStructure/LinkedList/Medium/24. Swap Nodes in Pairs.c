@@ -7,6 +7,6 @@
  */
 
 
-struct ListNode* swapPairs(struct ListNode* head){
+struct ListNode* swapPairs(struct ListNode* head) {
 
 }
