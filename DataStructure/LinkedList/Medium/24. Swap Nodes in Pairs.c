@@ -13,6 +13,22 @@ struct ListNode* swapPairs(struct ListNode* head) {
 		return head;
 	}
 
-	ListNode* travelOne = head;
-	ListNode* travelTwo = head -> next;
+	int nodeCount = 2;
+	ListNode* prevNode = head;
+	ListNode* currentNode = head -> next;
+
+	while(NULL != currentNode) {
+		// swapping
+		if(nodeCount % 2 == 0) {
+			int temp = prevNode -> val;
+			prevNode -> val = currentNode -> val;
+			currentNode -> val = temp;
+		}
+
+		prevNode = currentNode;
+		currentNode = currentNode -> next;
+		nodeCount++;
+	}
+
+	return head;
 }
