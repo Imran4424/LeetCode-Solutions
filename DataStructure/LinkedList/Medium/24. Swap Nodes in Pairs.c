@@ -6,6 +6,7 @@
  * };
  */
 
+typedef struct 
 
 struct ListNode* swapPairs(struct ListNode* head) {
 
