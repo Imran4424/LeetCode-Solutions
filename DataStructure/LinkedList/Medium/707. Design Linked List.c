@@ -89,8 +89,9 @@ void myLinkedListAddAtIndex(MyLinkedList* head, int index, int val) {
 
 	if(1 == index) {
 		temp -> next = NULL;
-		prev -> next = temp;
+		travel -> next = temp;
 	}
+
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
@@ -109,7 +110,7 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 	}
 
 	if (0 == index) {
-		prev = travel -> next;
+		prev -> next = travel -> next;
 	}
 }
 
