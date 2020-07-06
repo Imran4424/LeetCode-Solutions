@@ -17,8 +17,19 @@ MyLinkedList* myLinkedListCreate() {
 }
 
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
-int myLinkedListGet(MyLinkedList* obj, int index) {
-  
+int myLinkedListGet(MyLinkedList* head, int index) {
+	MyLinkedList *travel = head -> next;
+
+	while(NULL != travel -> next && index > 0) {
+		index--;
+		travel = travel -> next;
+	}
+
+	if(0 != index) {
+		return -1;
+	}
+
+	return travel -> data;
 }
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
