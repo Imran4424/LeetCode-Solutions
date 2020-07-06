@@ -1,38 +1,28 @@
 
-const int initValue = -32005;
+const int initValue = -31520;
 
 typedef struct MyLinkedList{
 	int data;
-	struct MyLinkedList *next;
+    	struct MyLinkedList *next;
 } MyLinkedList;
 
 /** Initialize your data structure here. */
 
 MyLinkedList* myLinkedListCreate() {
-	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
+    	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
 	temp -> data = initValue;
 	temp -> next = NULL;
 
 	return temp;
 }
 
-
-void printMyList(MyLinkedList *head) {
-	MyLinkedList *travel = head;
-
-	while(NULL != travel) {
-		printf("%d ", travel -> data);
-		travel = travel -> next;
-	}
-
-	printf("\n");
-}
-
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
 int myLinkedListGet(MyLinkedList* head, int index) {
-	MyLinkedList *travel = head;
+	MyLinkedList *travel = head -> next;
 
-	printMyList(head);
+	if (NULL == travel) {
+		return -1;
+	}
 
 	while(NULL != travel -> next && index > 0) {
 		index--;
@@ -48,34 +38,15 @@ int myLinkedListGet(MyLinkedList* head, int index) {
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
 void myLinkedListAddAtHead(MyLinkedList* head, int val) {
-	printMyList(head);
-
-	// when linkedlist is empty
-	if(initValue == head -> data) {
-		head -> data = val;
-		return;
-	}
-
 	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
 	temp -> data = val;
-	temp -> next = head;
+	temp -> next = head -> next;
 
-	head = temp;
-	printf("After add\n");
-	printMyList(head);
-
+	head -> next = temp;
 }
 
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList* head, int val) {
-	printMyList(head);
-
-	// when linkedlist is empty
-	if(initValue == head -> data) {
-		head -> data = val;
-		return;
-	}
-
 	MyLinkedList *travel = head;
 
 	while(travel -> next != NULL) {
@@ -91,96 +62,74 @@ void myLinkedListAddAtTail(MyLinkedList* head, int val) {
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
 void myLinkedListAddAtIndex(MyLinkedList* head, int index, int val) {
-	printMyList(head);
-
-	if(0 != index && initValue == head -> data) {
-		return;
-	}
-
-	if(0 == index) {
-		myLinkedListAddAtHead(head, val);
-		return;
-	}
-
-	if(1 == index && NULL == head -> next) {
-		myLinkedListAddAtTail(head, val);
-		return;
-	}
-
-	MyLinkedList *prev = head;
-	MyLinkedList *travel = head -> next;
-	index--; // cause we are traveling from the second node
-
-	if(NULL == travel) {
-		return;
-	}
-
-	while(NULL != travel -> next && index > 0) {
-		index--;
-		travel = travel -> next;
-	}
 
 	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
 	temp -> data = val;
+
+	MyLinkedList *prev = head;
+	MyLinkedList *travel = head -> next;
+
+	if (NULL == travel && 0 == index) {
+		temp -> next = NULL;
+		prev -> next = temp;
+
+		return;
+	}
+
+	while (NULL != travel -> next && index > 0) {
+		index--;
+		prev = travel;
+		travel = travel -> next;
+	}
 
 	if(0 == index) {
 		temp -> next = travel;
 		prev -> next = temp;
 	}
 
-	if(NULL == travel -> next && 1 == index) {
+	if(1 == index) {
 		temp -> next = NULL;
 		travel -> next = temp;
 	}
+
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
 void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
-	printMyList(head);
+	MyLinkedList *prev = head;
+	MyLinkedList *travel = head -> next;
 
-	// list is empty
-	if(initValue == head -> data) {
+	if(NULL == travel) {
 		return;
 	}
 
-	if(NULL == head -> next && 0 == index) {
-		head -> data = initValue;
-		return;
-	}
-
-	if(0 == index) {
-		head = head -> next;
-		return;
-	}
-
-	MyLinkedList *travel = head;
-
-	while(index > 1 && NULL != travel -> next) {
+	while (NULL != travel -> next && index > 0) {
 		index--;
+		prev = travel;
 		travel = travel -> next;
 	}
 
-	if(NULL != travel -> next) {
-		travel -> next = travel -> next -> next;
+	if (0 == index) {
+		prev -> next = travel -> next;
 	}
 }
 
-void myLinkedListFree(MyLinkedList* head) {
-	free(head);
+void myLinkedListFree(MyLinkedList* obj) {
+	free(obj);
 }
 
 /**
  * Your MyLinkedList struct will be instantiated and called as such:
- * MyLinkedList* head = myLinkedListCreate();
- * int param_1 = myLinkedListGet(head, index);
+ * MyLinkedList* obj = myLinkedListCreate();
+ * int param_1 = myLinkedListGet(obj, index);
  
- * myLinkedListAddAtHead(head, val);
+ * myLinkedListAddAtHead(obj, val);
  
- * myLinkedListAddAtTail(head, val);
+ * myLinkedListAddAtTail(obj, val);
  
- * myLinkedListAddAtIndex(head, index, val);
+ * myLinkedListAddAtIndex(obj, index, val);
  
- * myLinkedListDeleteAtIndex(head, index);
+ * myLinkedListDeleteAtIndex(obj, index);
  
- * myLinkedListFree(head);
+ * myLinkedListFree(obj);
 */
