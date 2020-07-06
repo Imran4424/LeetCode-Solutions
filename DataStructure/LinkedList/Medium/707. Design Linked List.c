@@ -21,7 +21,7 @@ int myLinkedListGet(MyLinkedList* head, int index) {
 	MyLinkedList *travel = head -> next;
 
 	if (NULL == travel) {
-		return;
+		return -1;
 	}
 
 	while(NULL != travel -> next && index > 0) {
@@ -43,7 +43,17 @@ void myLinkedListAddAtHead(MyLinkedList* obj, int val) {
 
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList* obj, int val) {
-  
+	MyLinkedList *travel = head;
+
+	while(travel -> next != NULL) {
+		travel = travel -> next;
+	}
+
+	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
+	temp -> data = val;
+	temp -> next = NULL;
+
+	travel -> next = temp;
 }
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
@@ -57,7 +67,7 @@ void myLinkedListDeleteAtIndex(MyLinkedList* obj, int index) {
 }
 
 void myLinkedListFree(MyLinkedList* obj) {
-    
+	free(obj);
 }
 
 /**
