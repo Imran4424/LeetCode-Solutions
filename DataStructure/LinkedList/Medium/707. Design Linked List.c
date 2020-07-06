@@ -1,5 +1,5 @@
 
-
+const int initValue = -31520;
 
 typedef struct MyLinkedList{
 	int data;
@@ -9,7 +9,11 @@ typedef struct MyLinkedList{
 /** Initialize your data structure here. */
 
 MyLinkedList* myLinkedListCreate() {
-    
+    	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
+	temp -> data = initValue;
+	temp -> next = NULL;
+
+	return temp;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
