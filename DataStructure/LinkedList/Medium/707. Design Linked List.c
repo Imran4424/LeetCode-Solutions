@@ -63,15 +63,54 @@ void myLinkedListAddAtTail(MyLinkedList* head, int val) {
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
 void myLinkedListAddAtIndex(MyLinkedList* head, int index, int val) {
 
+	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
+	temp -> data = val;
+
 	MyLinkedList *prev = head;
 	MyLinkedList *travel = head -> next;
 
-	
+	if (NULL == travel && 0 == index) {
+		temp -> next = NULL;
+		prev -> next = temp;
+
+		return;
+	}
+
+	while (NULL != travel -> next && index > 0) {
+		index--;
+		prev = travel;
+		travel = travel -> next;
+	}
+
+	if(0 == index) {
+		temp -> next = travel;
+		prev -> next = temp;
+	}
+
+	if(1 == index) {
+		temp -> next = NULL;
+		prev -> next = temp;
+	}
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
-void myLinkedListDeleteAtIndex(MyLinkedList* obj, int index) {
-  
+void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
+	MyLinkedList *prev = head;
+	MyLinkedList *travel = head -> next;
+
+	if(NULL == travel) {
+		return;
+	}
+
+	while (NULL != travel -> next && index > 0) {
+		index--;
+		prev = travel;
+		travel = travel -> next;
+	}
+
+	if (0 == index) {
+		prev = travel -> next;
+	}
 }
 
 void myLinkedListFree(MyLinkedList* obj) {
