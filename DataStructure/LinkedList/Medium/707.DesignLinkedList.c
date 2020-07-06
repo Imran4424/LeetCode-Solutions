@@ -1,5 +1,5 @@
 
-int initValue = -32005;
+const int initValue = -32005;
 
 typedef struct MyLinkedList{
 	int data;
@@ -10,7 +10,7 @@ typedef struct MyLinkedList{
 
 MyLinkedList* myLinkedListCreate() {
 	MyLinkedList *temp = malloc(sizeof(MyLinkedList));
-	temp - data = initValue;
+	temp -> data = initValue;
 	temp -> next = NULL;
 
 	return temp;
@@ -18,7 +18,18 @@ MyLinkedList* myLinkedListCreate() {
 
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
 int myLinkedListGet(MyLinkedList* head, int index) {
-  
+	MyLinkedList *traval = head;
+
+	while(NULL != traval -> head && index > 0) {
+		traval = traval -> next;
+		index--;
+	}
+
+	if(0 != index) {
+		return -1;
+	}
+
+	return traval -> data;
 }
 
 /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
@@ -59,17 +70,24 @@ void myLinkedListAddAtTail(MyLinkedList* head, int val) {
 
 /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
 void myLinkedListAddAtIndex(MyLinkedList* head, int index, int val) {
-  
+	if(0 == index && initValue == head -> data) {
+		head -> data = val;
+		return;
+	}
+
+	if(0 == index) {
+		
+	}
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
 void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
-	if(initValue == head -> val) {
+	if(initValue == head -> data) {
 		return;
 	}
 
 	if(NULL == head -> next && 0 == index) {
-		head -> val = initValue;
+		head -> data = initValue;
 		return;
 	}
 
@@ -80,7 +98,14 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 
 	MyLinkedList *traval = head;
 
-	while(index > 1 && )
+	while(index > 1 && NULL != traval -> next) {
+		traval = traval -> next;
+		index--;
+	}
+
+	if(NULL != traval -> next) {
+		traval -> next = traval -> next -> next;
+	}
 }
 
 void myLinkedListFree(MyLinkedList* head) {

@@ -1,8 +1,9 @@
 
 
 
-typedef struct {
-    
+typedef struct MyLinkedList{
+	int data;
+    	struct MyLinkedList *next;
 } MyLinkedList;
 
 /** Initialize your data structure here. */
