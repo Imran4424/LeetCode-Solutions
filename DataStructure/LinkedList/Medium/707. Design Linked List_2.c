@@ -117,6 +117,10 @@ void myLinkedListDeleteAtIndex(MyLinkedList* head, int index) {
 	if (0 == index) {
 		prev -> next = travel -> next;
 	}
+
+	if(NULL == prev -> next) {
+		lastNode = prev;
+	}
 }
 
 void myLinkedListFree(MyLinkedList* obj) {
