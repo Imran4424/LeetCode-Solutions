@@ -20,7 +20,11 @@ MyLinkedList* myLinkedListCreate() {
 int myLinkedListGet(MyLinkedList* head, int index) {
 	MyLinkedList *travel = head -> next;
 
-	while(NULL != travel && NULL != travel -> next && index > 0) {
+	if (NULL == travel) {
+		return;
+	}
+
+	while(NULL != travel -> next && index > 0) {
 		index--;
 		travel = travel -> next;
 	}
