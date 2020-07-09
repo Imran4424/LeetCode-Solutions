@@ -11,6 +11,6 @@ struct ListNode *detectCycle(struct ListNode *head) {
 
 int main(int argc, char const *argv[])
 {
-	/* code */
+	
 	return 0;
 }
