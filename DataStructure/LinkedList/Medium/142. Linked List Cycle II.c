@@ -12,6 +12,6 @@ struct ListNode *detectCycle(struct ListNode *head) {
     
 }
 
-void cycleDetection() {
+void cycleDetection(ListNode * head) {
 
 }
