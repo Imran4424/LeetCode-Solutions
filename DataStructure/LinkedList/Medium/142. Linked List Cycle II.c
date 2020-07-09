@@ -6,7 +6,7 @@
  * };
  */
 
-typedef 
+typedef struct ListNode ListNode;
 
 struct ListNode *detectCycle(struct ListNode *head) {
     
