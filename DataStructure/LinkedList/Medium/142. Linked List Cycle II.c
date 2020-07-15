@@ -16,9 +16,9 @@ struct ListNode *detectCycle(struct ListNode *head) {
 	bool cycleFound = false;
 
 	ListNode* travelSlow = head;
-	ListNode* travelFast = head -> next;
+	ListNode* travelFast = head;
 
-	while(NULL != travelFast -> next && NULL != travelFast -> next -> next) {
+	while(NULL != travelSlow && NULL != travelFast && NULL != travelFast -> next) {
 		
 		travelSlow = travelSlow -> next;
 		travelFast = travelFast -> next -> next;
@@ -29,21 +29,17 @@ struct ListNode *detectCycle(struct ListNode *head) {
 		}
 	}
 
-	printf("first while end\n");
+	
 	if(!cycleFound) {
 		return NULL;
 	}
 
 	travelSlow = head;
 
-	printf("Second while start\n");
-
 	while(travelSlow != travelFast) {
 		travelSlow = travelSlow -> next;
 		travelFast = travelFast -> next;
 	}
-
-	printf("Second while end\n");
 
 	return travelSlow;
 }
