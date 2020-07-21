@@ -28,6 +28,7 @@ struct Node* copyRandomList(struct Node* head) {
     newListHead -> random = head;
     
     Node* travel = head -> next;
+    Node* prev = head -> next;
     Node* copyTravel = newListHead;
  
     while(NULL != travel) {
@@ -44,7 +45,7 @@ struct Node* copyRandomList(struct Node* head) {
 
     // set main list next pointer to respective copy list node
 
-    Node* prev = head;
+    
     travel = head;
     copyTravel = newListHead;
 
