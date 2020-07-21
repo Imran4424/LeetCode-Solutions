@@ -25,6 +25,7 @@ struct Node* copyRandomList(struct Node* head) {
     Node *newListHead = malloc(sizeof(Node));
     newListHead -> val = head -> val;
     newListHead -> next = head -> next;
+    newListHead -> random = head;
     
     Node* travel = head -> next;
     Node* copyTravel = newListHead;
