@@ -19,28 +19,58 @@ struct Node* copyRandomList(struct Node* head) {
     	return head;
     }
 
+    // copying the linked list
+    // setting random pointer of copy list to main list respective nodes
+
     Node *newListHead = malloc(sizeof(Node));
     newListHead -> val = head -> val;
     newListHead -> next = head -> next;
     newListHead -> random = head;
-
-    Node* prev = head;
+    
     Node* travel = head -> next;
-    Node* newTravel = newListHead;
-    prev -> next = head;
-
+    Node* copyTravel = newListHead;
+ 
     while(NULL != travel) {
     	Node* temp = malloc(sizeof(Node));
     	temp -> val = travel -> val;
     	temp -> next = travel -> next;
     	temp -> random = travel;
 
-    	newTravel -> next = temp;
+    	copyTravel -> next = temp;
 
     	travel = travel -> next;
-    	newTravel = newTravel -> next;
+    	copyTravel = copyTravel -> next;
     }
 
+    // set main list next pointer to respective copy list node
+
+    Node* prev = head;
+    travel = head;
+    copyTravel = newListHead;
+
+    while(NULL != travel) {
+    	travel = travel -> next;
+
+    	prev -> next = copyTravel;
+    	prev = travel;
+
+    	copyTravel = copyTravel -> next;
+    }
+
+    // set copy list random pointer to main list random -> next pointer
+
+    copyTravel = newListHead;
+
+    while(NULL != copyTravel) {
+    	// using this rule
+    	if(NULL == copyTravel -> random -> random) {
+    		copyTravel -> random = NULL;
+    	} else {
+	    	copyTravel -> random = copyTravel -> random -> random -> next;
+    	}
+
+    	copyTravel = copyTravel -> next;
+    }
 
     return newListHead;
 }
