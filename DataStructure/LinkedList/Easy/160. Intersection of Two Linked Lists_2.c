@@ -16,36 +16,27 @@ int listLength(ListNode* travel) {
 
 		travel = travel -> next;
 	}
+
+	return length;
+}
+
+int absolute(int x) {
+	if(x < 0) {
+		return -x;
+	}
+
+	return x;
 }
 
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
 	ListNode *travelA = headA;
 	ListNode *travelB = headB;
 
-	int countA = 0, countB = 0;
+	int lengthOne = listLength(headA);
+	int lengthTwo = listLength(headB);
+	int distance = 
 
-
-
-	while(NULL != travelA && NULL != travelB) {
-		countA++;
-		countB++;
-
-		travelA = travelA -> next;
-		travelB = travelB -> next;
-	}
-
-	while(NULL != travelA) {
-		countA++;
-
-		travelA = travelA -> next;
-	}
-
-	while(NULL != travelB) {
-		countB++;
-
-		travelB = travelB -> next;
-	}
-
+	
 	if(travelA > travelB) {
 		for(int i = 1; i <= travelA - travelB; i++) {
 			headA = headA -> next;
