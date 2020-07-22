@@ -8,6 +8,16 @@
 
 typedef struct ListNode ListNode;
 
+int listLength(ListNode* travel) {
+	int length = 0;
+
+	while(NULL != travel) {
+		length++;
+
+		travel = travel -> next;
+	}
+}
+
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
 	ListNode *travelA = headA;
 	ListNode *travelB = headB;
