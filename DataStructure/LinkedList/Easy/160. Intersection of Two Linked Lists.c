@@ -8,6 +8,14 @@
 
 typedef struct ListNode ListNode;
 
+int absolute(int x) {
+	if(x < 0) {
+		return -x;
+	}
+
+	return x;
+}
+
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
 	ListNode *travelA = headA;
 	ListNode *travelB = headB;
@@ -36,12 +44,14 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
 		travelB = travelB -> next;
 	}
 
-	if(travelA > travelB) {
-		for(int i = 1; i <= travelA - travelB; i++) {
+	int distance = absolute(countA - countB);
+
+	if(countA > countB) {
+		for(int i = 1; i <= distance; i++) {
 			headA = headA -> next;
 		}
 	} else {
-		for(int i = 1; i <= travelB - travelA; i++) {
+		for(int i = 1; i <= distance; i++) {
 			headB = headB -> next;
 		}
 	}
