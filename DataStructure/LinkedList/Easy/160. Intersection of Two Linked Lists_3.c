@@ -12,8 +12,12 @@
 	
 	let's say, 
 	linked list 1 length is 7
+	linked list 2 length is 5
 
+	total length 12
 
+	after 2x total iteration
+	they will meet at insection point
 */
 
 
