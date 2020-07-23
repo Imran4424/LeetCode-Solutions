@@ -38,11 +38,11 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
 
 	
 	if(travelA > travelB) {
-		for(int i = 1; i < absolute; i++) {
+		for(int i = 1; i < distance; i++) {
 			headA = headA -> next;
 		}
 	} else {
-		for(int i = 1; i < absolute; i++) {
+		for(int i = 1; i < distance; i++) {
 			headB = headB -> next;
 		}
 	}
