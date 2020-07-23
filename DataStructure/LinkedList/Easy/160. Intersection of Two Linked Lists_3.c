@@ -7,6 +7,17 @@
  * };
  */
 
+/*
+	solution concept
+	
+	let's say, 
+	linked list 1 length is 7
+
+
+*/
+
+
+
 typedef struct ListNode ListNode;
 
 struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *headB) {
