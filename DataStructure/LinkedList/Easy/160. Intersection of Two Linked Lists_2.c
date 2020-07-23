@@ -36,13 +36,14 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
 	int lengthTwo = listLength(headB);
 	int distance =  absolute(lengthOne - lengthTwo);
 
+	///printf("%d %d %d\n", lengthOne, lengthTwo, distance);
 	
-	if(travelA > travelB) {
-		for(int i = 1; i < distance; i++) {
+	if(lengthOne > lengthTwo) {
+		for(int i = 1; i <= distance; i++) {
 			headA = headA -> next;
 		}
 	} else {
-		for(int i = 1; i < distance; i++) {
+		for(int i = 1; i <= distance; i++) {
 			headB = headB -> next;
 		}
 	}
