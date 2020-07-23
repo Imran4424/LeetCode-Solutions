@@ -28,6 +28,10 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
 			return travelA;
 		}
 
+		// If one of them reaches the end earlier then reuse it 
+	        // by moving it to the beginning of other list.
+	        // Once both of them go through reassigning, 
+	        // they will be equidistant from the collision point.
 
 		if (NULL == travelA) {
 			travelA = headB;
