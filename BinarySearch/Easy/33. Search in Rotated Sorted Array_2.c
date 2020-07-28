@@ -33,7 +33,17 @@ int search(int* nums, int numsSize, int target){
 			}
 		} else if (target > nums[numsSize - 1]) {
 			// target on the left side
+			high = mid;
+		} else {
+			// target on the right side
+			low = mid + 1;
 		}
+	}
+
+	if(nums[low] == target) {
+		return low;
+	} else {
+		return -1;
 	}
 }
 
