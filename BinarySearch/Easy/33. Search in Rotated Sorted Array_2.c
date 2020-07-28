@@ -29,11 +29,11 @@ int search(int* nums, int numsSize, int target){
 			if (nums[mid] < target) {
 				low = mid + 1;
 			} else {
-				high = mid;
+				high = mid + 1;
 			}
 		} else if (target > nums[numsSize - 1]) {
 			// target on the left side
-			high = mid;
+			high = mid + 1;
 		} else {
 			// target on the right side
 			low = mid + 1;
