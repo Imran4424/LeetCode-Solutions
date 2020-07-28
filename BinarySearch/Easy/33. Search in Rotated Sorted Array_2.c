@@ -13,7 +13,11 @@ int search(int* nums, int numsSize, int target){
 
 		// target and mid on the same side
 		if ((nums[mid] - nums[numsSize - 1]) * (target - nums[numsSize - 1]) > 0) {
-			
+			if (nums[mid] < target) {
+				low = mid + 1;
+			} else {
+				high = mid;
+			}
 		}
 	}
 }
