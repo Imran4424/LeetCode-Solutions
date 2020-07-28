@@ -10,6 +10,11 @@ int search(int* nums, int numsSize, int target){
 
 	while(low < high) {
 		int mid = low + (high - low) / 2;
+
+		// target and mid on the same side
+		if ((nums[mid] - nums[numsSize - 1]) * (target - nums[numsSize - 1]) > 0) {
+			
+		}
 	}
 }
 
