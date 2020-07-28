@@ -1,6 +1,7 @@
 /*
 
-	Let's say nums looks like this: [12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+	Let's say nums looks like this: 
+		[12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
 	Because it's not fully sorted, we can't do normal binary search. But here comes the trick:
 
