@@ -24,4 +24,3 @@ int mySqrt(int num){
 
 
 
-
