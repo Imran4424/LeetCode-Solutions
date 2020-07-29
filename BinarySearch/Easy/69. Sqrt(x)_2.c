@@ -2,8 +2,13 @@
 
 
 int mySqrt(int x) {
+
+	if(0 == x || 1 == x) {
+		return x;
+	}
+
 	int low = 1;
-	int high = x;
+	int high = x / 2;
 
 	while(low < high) {
 		int mid = low + (high - low) / 2;
