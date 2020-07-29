@@ -1,6 +1,6 @@
 
 
-double myPow(double x, int n){
+double myPow(double x, long long int n){
 	if(0 == n) {
 		return 1;
 	}
