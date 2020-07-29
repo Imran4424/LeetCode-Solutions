@@ -1,17 +1,17 @@
 
 
 
-int mySqrt(int x) {
+int mySqrt(long long int x) {
 
 	if(0 == x || 1 == x) {
 		return x;
 	}
 
-	int low = 1;
-	int high = x / 2;
+	long long int low = 1;
+	long long int high = x / 2;
 
 	while(low < high) {
-		int mid = low + (high - low) / 2;
+		long long int mid = low + (high - low) / 2;
 
 		if (mid * mid == x) {
 			return mid;
@@ -25,6 +25,6 @@ int mySqrt(int x) {
 	if(high * high > x) {
 		return high - 1;
 	} 
-	
+
 	return high;
 }
