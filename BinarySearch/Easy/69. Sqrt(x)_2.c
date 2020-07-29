@@ -22,5 +22,9 @@ int mySqrt(int x) {
 		}
 	}
 
+	if(high * high > x) {
+		return high - 1;
+	} 
+	
 	return high;
 }
