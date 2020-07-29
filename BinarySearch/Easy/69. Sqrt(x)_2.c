@@ -1,6 +1,6 @@
 
 
 
-int mySqrt(int x){
+int mySqrt(int x) {
 
 }
