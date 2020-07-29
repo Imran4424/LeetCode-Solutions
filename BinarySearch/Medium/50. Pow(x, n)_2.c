@@ -1,7 +1,7 @@
 
 
-double myPow(double x, long long int n){
-	if(0 == n) {
+double myPow(double x, long long int n) {
+	if(0 == n || 1 == x) {
 		return 1;
 	}
 
