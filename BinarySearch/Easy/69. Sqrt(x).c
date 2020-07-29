@@ -22,4 +22,3 @@ int mySqrt(int num){
 
 
 
-
