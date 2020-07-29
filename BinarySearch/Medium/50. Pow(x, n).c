@@ -12,12 +12,12 @@ double myPow(double x, long long int n) {
 
 	double poweredNum = 1;
 
-	while(n > 1) {
-		if(n % 2 == 0) {
-			poweredNum = poweredNum * poweredNum;
-		} else {
-			poweredNum = x * poweredNum * poweredNum;
+	while(n > 0) {
+		if(1 == n % 2) {
+			poweredNum = poweredNum * x;
 		}
+
+		x = x * x;
 
 		n = n / 2; 
 	}
