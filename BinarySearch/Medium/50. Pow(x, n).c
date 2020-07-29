@@ -10,7 +10,7 @@ double myPow(double x, long long int n) {
 		x = 1 / x;
 	}
 
-	double poweredNum = x;
+	double poweredNum = 1;
 
 	while(n > 1) {
 		if(n % 2 == 0) {
