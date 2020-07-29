@@ -13,4 +13,3 @@ int mySqrt(int num){
     
     return i - 1;
 }
-
