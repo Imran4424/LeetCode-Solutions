@@ -13,8 +13,12 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
 	for (int i = 0; i < numsSize; i++) {
 		if (target == nums[i]) {
 			indexArr[index] = i;
-		}
 
-		if ()
+			if(0 == index) {
+				index++;
+			}
+		} else if(target < nums[i]) {
+			break;
+		}
 	}
 }
