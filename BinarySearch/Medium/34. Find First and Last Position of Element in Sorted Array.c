@@ -21,4 +21,8 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
 			break;
 		}
 	}
+
+	*returnSize = 2;
+
+	return indexArr;
 }
