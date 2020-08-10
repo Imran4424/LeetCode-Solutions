@@ -1,7 +1,9 @@
 
 
 
-
+int findElement(int* nums, int numsSize, int target) {
+	
+}
 
 
 /**
