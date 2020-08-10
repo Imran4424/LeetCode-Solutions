@@ -5,7 +5,7 @@ int findElement(int* nums, int numsSize, int target) {
 	int low = 0;
 	int high = numsSize - 1;
 
-	while(low < high) {
+	while(low <= high) {
 		int mid = low + (high - low) / 2;
 
 		if(target == nums[mid]) {
@@ -33,7 +33,7 @@ int* searchRange(int* nums, int numsSize, int target, int* returnSize) {
 
 	if(-1 != index) {
 		// left index
-		for(int i = index - 1; i > 0; i--) {
+		for(int i = index - 1; i >= 0; i--) {
 			if(target == nums[i]) {
 				indexArr[0] = i;
 			}
