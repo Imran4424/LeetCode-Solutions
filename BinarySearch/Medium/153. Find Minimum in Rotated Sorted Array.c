@@ -1,4 +1,4 @@
 
-int findMin(int* nums, int numsSize){
+int findMin(int* nums, int numsSize) {
 
 }
