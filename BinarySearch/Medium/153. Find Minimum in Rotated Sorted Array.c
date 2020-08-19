@@ -1,5 +1,5 @@
 
-int findminValue(int* nums, int numsSize) {
+int findMin(int* nums, int numsSize) {
 	int minValue = nums[numsSize - 1];
 
 	for(int i = numsSize - 1; i >= 0; i--) {
