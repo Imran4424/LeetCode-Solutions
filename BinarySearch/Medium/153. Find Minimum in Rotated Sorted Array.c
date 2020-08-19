@@ -12,3 +12,4 @@ int findMin(int* nums, int numsSize) {
 
 	return minValue;
 }
+
