@@ -7,6 +7,6 @@ int findMin(int* nums, int numsSize) {
 
 	while(low <= high) {
 		int mid = low + (high - low) / 2;
-		
+
 	}
 }
