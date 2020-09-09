@@ -23,10 +23,24 @@ int findMin(int* nums, int numsSize) {
 	while(low <= high) {
 		int mid = low + (high - low) / 2;
 
-		if (nums[mid] > nums[low] && nums[mid + 1] < nums[low]) {
+		if (nums[mid] > nums[mid + 1]) {
 			return nums[mid + 1];
-		} else if (nums[mid] < nums[low] && nums[mid - 1] > nums[low]) {
+		} else if (nums[mid] < nums[mid - 1]) {
 			return nums[mid];
-		} else if 
+		} else if (nums[mid] > mid[0]) {
+		      	/*
+				if the mid elements value is greater than the 0th element this means
+				the least value is still somewhere to the right as we are still 
+				dealing with elements	
+		      	*/
+
+			low = mid + 1;
+		} else if (nums[mid] < nums[0]) {
+			/*
+				if nums[0] is greater than the mid value then this means the smallest 
+				value is somewhere to the left
+			*/
+			high = mid - 1;
+		}
 	}
 }
