@@ -44,7 +44,7 @@ int findMin(int* nums, int numsSize) {
 			return nums[mid];
 		} else if (nums[mid] >= nums[low]) {
 		      	/*
-				if the mid elements value is greater than the 0th element this means
+				if the mid elements value is greater than or equal the low element this means
 				the least value is still somewhere to the right as we are still 
 				dealing with elements	
 		      	*/
@@ -52,7 +52,7 @@ int findMin(int* nums, int numsSize) {
 			low = mid + 1;
 		} else if (nums[mid] <= nums[high]) {
 			/*
-				if nums[0] is greater than the mid value then this means the smallest 
+				if high is greater than or equal to the mid value then this means the smallest 
 				value is somewhere to the left
 			*/
 			high = mid - 1;
