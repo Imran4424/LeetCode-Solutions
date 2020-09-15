@@ -55,6 +55,7 @@ int findMin(int* nums, int numsSize) {
 				if high is greater than or equal to the mid value then this means the smallest 
 				value is somewhere to the left
 			*/
+			
 			high = mid - 1;
 		}
 
