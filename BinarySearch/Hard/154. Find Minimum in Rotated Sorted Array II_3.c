@@ -47,13 +47,17 @@ int findMin(int* nums, int numsSize) {
 		      	*/
 
 			low = mid + 1;
-		} else if (nums[mid] < nums[high]) {
+		} else if (nums[mid] <= nums[high]) {
 			/*
 				if nums[0] is greater than the mid value then this means the smallest 
 				value is somewhere to the left
 			*/
-			high = mid;
+			high = mid - 1;
 		}
+	}
+
+	if (nums[low] < nums[0]) {
+		return nums[low];
 	}
 
 	return nums[0];
