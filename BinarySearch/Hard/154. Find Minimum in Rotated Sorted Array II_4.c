@@ -12,7 +12,8 @@ int findMin(int* nums, int numsSize) {
 			low = mid + 1;
 		} else if (nums[mid] < nums[high]) {
 			high = mid;
-		} else {
+		} else { 
+			// when num[mid] and num[hi] are same
 			high--;
 		}
 
