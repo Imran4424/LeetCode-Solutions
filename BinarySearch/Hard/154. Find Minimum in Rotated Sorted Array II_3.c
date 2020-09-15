@@ -16,10 +16,12 @@ int findMin(int* nums, int numsSize) {
 	int low = 0;
 	int high = numsSize - 1;
 
+	// 1 size array
 	if (1 == numsSize) {
 		return nums[0];
 	}
 
+	// 2 size array
 	if (numsSize < 3) {
 		if(nums[0] < nums[1]) {
 			return nums[0]; 
