@@ -30,6 +30,7 @@ int findMin(int* nums, int numsSize) {
 		return nums[1];
 	}
 
+	//if not rotated
 	if (nums[low] < nums[high]) {
 		return nums[low];
 	}
