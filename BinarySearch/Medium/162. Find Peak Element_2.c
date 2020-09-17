@@ -12,6 +12,11 @@ int findPeakElement(int* nums, int numsSize){
 
 			break;
 		}
+
+		if(peakElemnet < nums[i]) {
+			peakElemnet = nums[i];
+			peakIndex = i;
+		}
 	}
 
 	return peakIndex;
