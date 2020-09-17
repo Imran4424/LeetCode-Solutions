@@ -38,3 +38,4 @@ int findPeakElement(int* nums, int numsSize){
 	
 	return low;
 }
+
