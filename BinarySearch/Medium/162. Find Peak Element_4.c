@@ -1,4 +1,12 @@
 
+/*
+	simulations
+	1 2 3 1
+	low = 0, high = 3, mid = 0 + (3 - 0)/ 2 = 1
+	low = mid + 1 = 1 + 1 = 2, high = 3, mid = 2 + (3 - 2) / 2 = 2
+	 
+
+*/
 
 
 int findPeakElement(int* nums, int numsSize){
