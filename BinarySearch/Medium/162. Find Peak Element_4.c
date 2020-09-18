@@ -18,6 +18,12 @@
 
 	1 2 1 2 1 3 1
 	low = 0, high = 6, mid = 0 + (6 - 0)/2 = 3
+	low = 0, high = mid = 3, mid = 0 + (3 - 0)/2 = 1
+	low = 0, high = mid = 1, mid = 0 + (1 - 0)/2 = 0
+	low = mid + 1 = 1, high = 1
+	while condition false
+	break
+	return 1
 	
 
 
