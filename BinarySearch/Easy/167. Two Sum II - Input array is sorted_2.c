@@ -18,6 +18,7 @@ int* twoSum(int* numbers, int numbersSize, int target, int* returnSize){
             } else if(target < numbers[first] + numbers[mid]) {
                 high = mid - 1;
             } else {
+                // because of 1 base number system
                 indexOne = first + 1;
                 indexTwo = mid + 1;
 
