@@ -18,7 +18,7 @@ int firstBadVersion(int num) {
             return mid;
         } else if(!isBadVersion(mid)) {
             low = mid + 1;
-        } else if(isBadVersion(mid - 1) && isBadVersion(mid)) {
+        } else if(isBadVersion(mid)) {
             high = mid - 1;
         }
     }
