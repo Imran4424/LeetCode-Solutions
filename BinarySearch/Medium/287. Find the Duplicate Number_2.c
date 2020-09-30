@@ -11,7 +11,7 @@ typedef struct HashNode
 } HashNode;
 
 HashNode* getNode(int value) {
-	HashNode* node;
+	HashNode* node = malloc(sizeof(HashNode));
 	node -> data = value;
 	node -> next = NULL;
 
@@ -26,16 +26,17 @@ void initHash() {
 	}
 }
 
-void hashInsert(HashNode* head, int value) {
+HashNode* hashInsert(HashNode* head, int value) {
 	HashNode *temp = getNode(value);
 
 	if (NULL == head) {
 		head = temp;
-		return;
+	} else {
+		temp -> next = head;
+		head = temp;
 	}
 
-	temp -> next = head;
-	head = temp;
+	return head;
 }
 
 bool hashSearch(HashNode* head, int target) {
@@ -61,7 +62,7 @@ int findDuplicate(int* nums, int numsSize) {
 		if(hashSearch(hashHead[code], x)) {
 			return x;
 		} else {
-			hashInsert(hashHead[code], x);
+			hashHead[code] = hashInsert(hashHead[code], x);
 		}
 	}
 
