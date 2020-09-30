@@ -1,14 +1,24 @@
 
 
+int hashCode(int givenNum) {
+	return givenNum % 100;
+}
+
 typedef struct HashNode
 {
 	int data;
 	struct HashNode* next;	
 } HashNode;
 
+HashNode* hashHead[100];
+
+void initHash() {
+	
+}
+
 
 int findDuplicate(int* nums, int numsSize) {
-	int vistied[30001] = {0};
+	initHash();
 
 	for(int i = 0; i < numsSize; i++) {
 		if(vistied[nums[i]]) {
