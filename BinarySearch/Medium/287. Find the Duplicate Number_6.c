@@ -1,5 +1,14 @@
 
 
+/*
+	if while condition is low <= high
+	then, low = mid + 1, high = mid - 1;
+
+	if while condition is low < high
+	then, low = mid + 1, high = mid
+
+	always remember the difference
+*/
 
 
 int findDuplicate(int* nums, int numsSize) {
