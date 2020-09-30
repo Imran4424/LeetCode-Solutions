@@ -2,6 +2,6 @@
 
 
 
-int findDuplicate(int* nums, int numsSize){
+int findDuplicate(int* nums, int numsSize) {
 
 }
