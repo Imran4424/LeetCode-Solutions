@@ -8,7 +8,7 @@ int findDuplicate(int* nums, int numsSize) {
 		if(vistied[nums[i]]) {
 			return nums[i];
 		} else {
-			vistied[nums[i]] = 1;
+			vistied[nums[i]] = true;
 		}
 	}
 
