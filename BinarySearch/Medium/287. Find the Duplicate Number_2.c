@@ -30,7 +30,7 @@ void hashInsert(HashNode* head, int value) {
 	HashNode *temp = getNode(value);
 
 	if (NULL == head) {
-		head = temp
+		head = temp;
 		return;
 	}
 
