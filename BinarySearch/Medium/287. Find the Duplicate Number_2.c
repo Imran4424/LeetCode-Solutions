@@ -13,6 +13,12 @@ typedef struct HashNode
 HashNode* hashHead[100];
 
 void initHash() {
+	for(int i = 0; i < 100; i++) {
+		hashHead[i] = NULL;
+	}
+}
+
+void hashInsert(HashNode* head, int value) {
 	
 }
 
