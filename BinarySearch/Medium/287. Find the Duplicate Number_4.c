@@ -1,5 +1,11 @@
 
 
+void merge(int *left, int leftSize, int *right, int rightSize, int *arr) {
+	int i = 0, j = 0, k = 0;
+
+	while ()
+}
+
 void mergeSort(int *arr, int size) {
 	if (size < 2) {
 		return;
@@ -13,10 +19,12 @@ void mergeSort(int *arr, int size) {
 		left[i] = arr[i];
 	}
 
-	for(int i = mid; i < size; i++) {
+	for (int i = mid; i < size; i++) {
 		right[i - mid] = arr[i]; 
 	}
 
 	mergeSort(left, mid);
 	mergeSort(right, size - mid);
+
+	merge(left, mid, right, size - mid, arr);
 }
