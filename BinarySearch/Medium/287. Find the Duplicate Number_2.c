@@ -55,10 +55,13 @@ int findDuplicate(int* nums, int numsSize) {
 	initHash();
 
 	for(int i = 0; i < numsSize; i++) {
-		if(vistied[nums[i]]) {
-			return nums[i];
+		int x = nums[i];
+		int code = hashCode(x);
+
+		if(hashSearch(hashHead[code], x)) {
+			return x;
 		} else {
-			vistied[nums[i]] = 1;
+			hashInsert(hashHead[code], x);
 		}
 	}
 
