@@ -5,10 +5,10 @@ int findDuplicate(int* nums, int numsSize) {
 	int vistied[30001];
 
 	for(int i = 0; i < numsSize; i++) {
-		if(nums[i] == vistied[nums[i]]) {
+		if(vistied[nums[i]]) {
 			return nums[i];
 		} else {
-			vistied[nums[i]] = nums[i];
+			vistied[nums[i]] = 1;
 		}
 	}
 
