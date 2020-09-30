@@ -2,7 +2,7 @@
 
 
 int findDuplicate(int* nums, int numsSize) {
-	bool vistied[30001];
+	bool vistied[30001] = {0};
 
 	for(int i = 0; i < numsSize; i++) {
 		if(vistied[nums[i]]) {
