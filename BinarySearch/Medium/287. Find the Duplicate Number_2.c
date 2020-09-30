@@ -27,7 +27,23 @@ void initHash() {
 }
 
 void hashInsert(HashNode* head, int value) {
-	if (NULL == head)
+	HashNode *temp = getNode(value);
+
+	if (NULL == head) {
+		head = temp
+		return;
+	}
+
+	temp -> next = head;
+	head = temp;
+}
+
+bool hashSearch(HashNode* head, int value) {
+	if (NULL == head) {
+		return false;
+	}
+
+	
 }
 
 
