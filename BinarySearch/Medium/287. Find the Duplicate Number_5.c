@@ -31,7 +31,20 @@
 
 
 int findDuplicate(int* nums, int numsSize){
-	
+	int tortoise = nums[0];
+	int hare = nums[0];
 
-	return -1;
+	do {
+		tortoise = nums[tortoise];
+		hare = nums[nums[hare]];
+	} while (hare != tortoise);
+
+	tortoise = nums[0];
+
+	while (tortoise != hare) {
+		tortoise = nums[tortoise];
+		hare = nums[hare];
+	}
+
+	return hare;
 }
