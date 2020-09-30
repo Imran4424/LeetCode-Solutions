@@ -10,6 +10,14 @@ typedef struct HashNode
 	struct HashNode* next;	
 } HashNode;
 
+HashNode* getNode(int value) {
+	HashNode* node;
+	node -> data = value;
+	node -> next = NULL;
+
+	return node;
+}
+
 HashNode* hashHead[100];
 
 void initHash() {
