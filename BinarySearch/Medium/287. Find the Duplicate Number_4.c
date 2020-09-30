@@ -18,7 +18,7 @@ void merge(int *left, int leftSize, int *right, int rightSize, int *arr) {
 	}
 
 	while(j < rightSize) {
-		arr[k++] = right[k++];
+		arr[k++] = right[j++];
 	}
 }
 
