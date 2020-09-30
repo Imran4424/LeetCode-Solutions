@@ -3,7 +3,7 @@
 void merge(int *left, int leftSize, int *right, int rightSize, int *arr) {
 	int i = 0, j = 0, k = 0;
 
-	while (i < leftSize || j < rightSize) {
+	while (i < leftSize && j < rightSize) {
 		if (left[i] <= right[j]) {
 			arr[k] = left[i++];
 		} else {
