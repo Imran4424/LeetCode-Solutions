@@ -38,12 +38,16 @@ void hashInsert(HashNode* head, int value) {
 	head = temp;
 }
 
-bool hashSearch(HashNode* head, int value) {
-	if (NULL == head) {
-		return false;
+bool hashSearch(HashNode* head, int target) {
+	while (NULL != head) {
+		if (target == head -> data) {
+			return true;
+		}
+
+		head = head -> next;
 	}
 
-	
+	return false;
 }
 
 
