@@ -7,15 +7,15 @@ int* plusOne(int* digits, int digitsSize, int* returnSize){
 	// the grand increment
 	digits[digitsSize - 1]++;
 
-	if (digits[digitsSize - 1] <= 9) {
+	if (digits[digitsSize - 1] < 10) {
 		*returnSize = digitsSize;
 		return digits;
 	}
 
 	bool allNine = true;
-	for (int i = 0; i < digitsSize; i++) {
+	for (int i = 0; i < digitsSize - 1; i++) {
 		if(9 != digits[i]) {
-			allNine = false
+			allNine = false;
 			break;
 		}
 	}
