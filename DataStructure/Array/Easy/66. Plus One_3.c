@@ -7,8 +7,9 @@ int* plusOne(int* digits, int digitsSize, int* returnSize){
 	for (int i = digitsSize - 1; i >= 0; i--) {
 		// checking the current digit
 		// if it's less than 9 then just increment and return it
-		if (digits < 9) {
+		if (digits[i] < 9) {
 			digits[i]++;
+			*returnSize = digitsSize;
 			return digits;
 		}
 
