@@ -1,31 +1,20 @@
 
-
+/// in this code we are merging the code in reverse order
+/// comparing every element who is bigger than who
 void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n){
-	if (0 == n) {
-		return;
-	}
+	int i = m - 1;
+	int j = n - 1;
+	int k = m + n - 1;
 
-	if (0 == m) {
-		for (int i = 0; i < n; i++) {
-			nums1[i] = nums2[i];
+	while(i >= 0 && j >= 0) {
+		if(nums1[i] > nums2[j]) {
+			nums1[k--] = nums1[i--];
+		} else {
+			nums1[k--] = nums2[j--];
 		}
-
-		return;
 	}
 
-	int i = 0, j = 0;
-
-	while (i < m && j < n) {
-		if (nums1[i] > nums2[j]) {
-			int temp = nums1[i];
-			nums1[i] = nums2[j];
-			nums2[j] = temp;
-		}
-
-		i++;
-	}
-
-	while(j < n) {
-		nums1[i++] = nums2[j++];
+	while(j >= 0) {
+		nums1[k--] = nums2[j--];
 	}
 }
