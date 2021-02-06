@@ -1,5 +1,6 @@
 
 void rotate(int* nums, int numsSize, int k){
+	k = k % numsSize;
 	while(k--) {
 		int store = nums[numsSize - 1];
 
