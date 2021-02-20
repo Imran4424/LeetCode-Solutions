@@ -1,5 +1,5 @@
 
-void merge(int *arr, int arrSize, int *left, int leftSize, int *right, int rightSize) {
+void merge(int *arr, int *left, int leftSize, int *right, int rightSize) {
 	int i = 0, j = 0, k = 0;
 
 	while(i < leftSize && j < rightSize) {
@@ -28,15 +28,20 @@ void mergeSort(int *arr, int arrSize) {
 	int left[mid];
 	int right[arrSize - mid];
 
+	int index = 0;
+
 	for(int i = 0; i < mid; i++) {
-		left[i] = arr[i];
+		left[i] = arr[index++];
 	}
 
 	for(int i = 0; i < arrSize - mid; i++) {
-		right[i] = arr[arrSize - mid + i];
+		right[i] = arr[index++];
 	}
 
-	merge(arr, arrSize, left, mid, right, arrSize - mid);
+	mergeSort(left, mid);
+	mergeSort(right, arrSize - mid);
+
+	merge(arr, left, mid, right, arrSize - mid);
 }
 
 bool containsDuplicate(int* nums, int numsSize){
