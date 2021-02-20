@@ -1,5 +1,6 @@
 
 
-bool containsDuplicate(int* nums, int numsSize){
 
+bool containsDuplicate(int* nums, int numsSize){
+	
 }
