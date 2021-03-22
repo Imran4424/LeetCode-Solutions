@@ -11,10 +11,36 @@ public:
         if (0 == index) {
         	dataList[index] = num;
         }
+
+        int targetIndex;
+
+        for (targetIndex = 0; targetIndex < index; targetIndex++) {
+        	if (num < dataList[targetIndex]) {
+        		break;
+        	}
+        }
+
+        for (int i = index - 1; i >= targetIndex; i--) {
+        	dataList[i + 1] = dataList[i];
+        }
+
+        dataList[targetIndex] = num;
+        index++;
     }
     
     double findMedian() {
-        
+        double median;
+        int currentIndex = index - 1;
+
+        // current index even means
+	// total number of variables are even
+        if (currentIndex % 2 == 0) {
+        	median = (double) dataList[currentIndex / 2];
+        } else {
+        	median = ((double) dataList[currentIndex / 2] + (double) dataList[currentIndex / 2 + 1]) / 2;
+        }
+
+        return median;
     }
 };
 

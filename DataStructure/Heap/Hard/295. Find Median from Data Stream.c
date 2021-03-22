@@ -41,6 +41,8 @@ double medianFinderFindMedian(MedianFinder* obj) {
 
 	double median;
 
+	// current index even means
+	// total number of variables are even
 	if (currentIndex % 2 == 0) {
 		median = (double) obj -> dataList[currentIndex / 2 ];
 	} else {
