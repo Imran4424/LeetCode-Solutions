@@ -1,6 +1,10 @@
+/**
+        This heap solution is much faster than  the other one
+*/
+
 class MaxHeap {
-        int topIndex = 1;
-        int heapIndex = 0;
+        int topIndex;
+        int heapIndex;
         int heapSize;
         int *heap;
 
@@ -28,7 +32,7 @@ class MaxHeap {
                         largest = leftChild;
                 }
 
-                if (rightChild <= heapIndex && heap[rightChild] < heap[largest]) {
+                if (rightChild <= heapIndex && heap[rightChild] > heap[largest]) {
                         largest = rightChild;
                 }
 
@@ -39,9 +43,14 @@ class MaxHeap {
         }
 
 public:
-        MaxHeap() { }
+        MaxHeap() { 
+                topIndex = 1;
+                heapIndex = 0;
+        }
 
         MaxHeap(int heapSize) {
+                topIndex = 1;
+                heapIndex = 0;
                 this -> heapSize = heapSize;
                 heap = new int[heapSize + 1];
         }
@@ -56,7 +65,7 @@ public:
                 // Fix the min heap property if it is violated
                 int currentIndex = heapIndex;
 
-                while(currentIndex != 0 && heap[currentIndex] > heap[parent(currentIndex)]) {
+                while(currentIndex > 1 && heap[currentIndex] > heap[parent(currentIndex)]) {
                         swapNode(currentIndex, parent(currentIndex));
 
                         currentIndex = parent(currentIndex);
@@ -126,9 +135,14 @@ class MinHeap {
         }
 
 public:
-        MinHeap() { }
+        MinHeap() { 
+                topIndex = 1;
+                heapIndex = 0;
+        }
 
         MinHeap(int heapSize) {
+                topIndex = 1;
+                heapIndex = 0;
                 this -> heapSize = heapSize;
                 heap = new int[heapSize + 1];
         }
@@ -143,7 +157,7 @@ public:
                 // Fix the min heap property if it is violated
                 int currentIndex = heapIndex;
 
-                while(currentIndex != 0 && heap[currentIndex] < heap[parent(currentIndex)]) {
+                while(currentIndex > 1 && heap[currentIndex] < heap[parent(currentIndex)]) {
                         swapNode(currentIndex, parent(currentIndex));
 
                         currentIndex = parent(currentIndex);
