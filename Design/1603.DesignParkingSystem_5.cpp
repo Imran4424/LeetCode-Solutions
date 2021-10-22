@@ -1,17 +1,17 @@
 class ParkingSystem {
-	int space[3] = {0};
+	map<int, int> space;
 public:
     ParkingSystem(int big, int medium, int small) {
-    	space[0] = big;
-        space[1] = medium;
-        space[2] = small;
+    	space[1] = big;
+    	space[2] = medium;
+    	space[3] = small;
     }
     
     bool addCar(int carType) {
-    	if(space[carType - 1]) {
-            space[carType - 1]--;
-            return true;
-        }
+    	if (space[carType] > 0) {
+    		space[carType]--;
+    		return true;
+    	}
 
     	return false;
     }

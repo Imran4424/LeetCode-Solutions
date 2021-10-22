@@ -1,19 +1,12 @@
 class ParkingSystem {
-	int space[3] = {0};
+	vector <int> space;
 public:
     ParkingSystem(int big, int medium, int small) {
-    	space[0] = big;
-        space[1] = medium;
-        space[2] = small;
+    	space = {big, medium, small};
     }
     
     bool addCar(int carType) {
-    	if(space[carType - 1]) {
-            space[carType - 1]--;
-            return true;
-        }
-
-    	return false;
+    	return space[carType - 1]-- > 0;
     }
 };
 
