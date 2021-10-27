@@ -12,12 +12,11 @@ public:
     	vector<string> result;
     	orderedStream[idKey] = value;
 
-    	while (index < orderedStream.size()) {
-    		if(orderedStream[index].empty()) {
-    			return result;
-    		}
+    	if (index == idKey) {
 
-    		result.push_back(orderedStream[index++]);
+            while(index < orderedStream.size() && !orderedStream[index].empty()) {
+                result.push_back(orderedStream[index++]);
+            }
     	}
 
     	return result;
