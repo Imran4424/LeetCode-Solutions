@@ -6,7 +6,7 @@
  * };
  */
 
-int getDecimalValue(struct ListNode* head){
+int getDecimalValue(struct ListNode* head) {
     int decimal = 0;
     
     while(NULL != head) {
