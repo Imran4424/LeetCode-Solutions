@@ -15,35 +15,44 @@
 class Solution {
 	typedef pair<string, double> NodeValue;
 
-	unordered_map <string, NodeValue > weightedGraph;
+	unordered_map <string, NodeValue > groupGraph;
 
 	NodeValue findValue(string nodeId) {
 
-		if (!weightedGraph.count(nodeId)) {
-			weightedGraph[nodeId] = {nodeId, 1. 0};
+		if (!groupGraph.count(nodeId)) {
+			groupGraph[nodeId] = {nodeId, 1.0};
 		}
 
-		NodeValue entry = weightedGraph[nodeId];
+		NodeValue entry = groupGraph[nodeId];
 		
 		if (entry.first != nodeId) {
 			NodeValue newEntry = findValue(entry.first);
 
-			weightedGraph[nodeId] = {entry.first, entry.second * newEntry.second};
+			groupGraph[nodeId] = {newEntry.first, entry.second * newEntry.second};
 		}
 
-		return weightedGraph[nodeId];
+		return groupGraph[nodeId];
 	}
 
 	void unionVertex(string dividend, string divisor, double quotient) {
 		NodeValue dividendEntry = findValue(dividend);
 		NodeValue divisorEntry = findValue(divisor);
 
-		
+		string dividendGroupId = dividendEntry.first;
+		string divisorGroupId = divisorEntry.first;
+		double dividendWeight = dividendEntry.second;
+		double divisorWeight = divisorEntry.second;
+
+		// merge the two groups together,
+	        // by attaching the dividend group to the one of divisor
+	        if (dividendGroupId != divisorGroupId) {
+	        	groupGraph[dividendGroupId] = {divisorGroupId, divisorWeight * quotient / dividendWeight};
+	        }
 	}
 
 public:
 	vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
-		weightedGraph.clear();
+		groupGraph.clear();
 
 		// Step 1). build the union groups
 		for (int i = 0; i < equations.size(); i++) {
@@ -53,5 +62,35 @@ public:
 
 			unionVertex(dividend, divisor, quotient);
 		}
+
+		// Step 2). run the evaluation, with "lazy" updates in find() function
+		vector<double> result(queries.size());
+		for (int i = 0; i < queries.size(); i++) {
+			string dividend = queries[i][0];
+			string divisor = queries[i][1];
+
+			if (!groupGraph.count(dividend) || !groupGraph.count(divisor)) {
+				// case 1). at least one variable did not appear before
+				result[i] = -1;
+			} else {
+				NodeValue dividendEntry = findValue(dividend);
+				NodeValue divisorEntry = findValue(divisor);
+
+				string dividendGroupId = dividendEntry.first;
+				string divisorGroupId = divisorEntry.first;
+				double dividendWeight = dividendEntry.second;
+				double divisorWeight = divisorEntry.second;
+
+				if (dividendGroupId != divisorGroupId) {
+					// case 2). the variables do not belong to the same chain/group
+					result[i] = -1;
+				} else {
+					// case 3). there is a chain/path between the variables
+			                result[i] = dividendWeight / divisorWeight;
+				}
+			}
+		}
+
+		return result;
 	}
 };
