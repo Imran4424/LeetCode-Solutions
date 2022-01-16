@@ -37,37 +37,22 @@
 */
 
 class Solution {
+	char specialChar = '*';
+
 	bool isTypos(string source, string destination) {
 		for (int i = 0; i < destination.size(); i++) {
 			string reserve = source;
+			char res = destination[i];
 
-			// letter check
-        		char chB, chS;
-        		for (chS = 'a', chB = 'A'; chS <= 'z' && chB <= 'Z'; chS++, chB++) {
-				source.insert(i, string(1, chS));
-				if (source == destination) {
-					return true;
-				}
+			source.insert(i, string(1, specialChar));
+			destination[i] = specialChar;
 
-				source = reserve;
-
-				source.insert(i, string(1, chB));
-				if (source == destination) {
-					return true;
-				}
-
-				source = reserve;
+			if (source == destination) {
+				return true;
 			}
 
-			// digit check
-        		for (char digit = '0'; digit <= '9'; digit++) {
-        			source.insert(i, string(1, digit));
-        			if (source == destination) {
-        				return true;
-        			}
-
-        			source = reserve;
-        		}
+			source = reserve;
+			destination[i] = res;
 		}
 
 		return false;
@@ -95,30 +80,16 @@ public:
         	//cout << "both equal" << endl;
         	for (int i = 0; source[i]; i++) {
         		char res = source[i];
+        		char tarRes = target[i];
 
-        		// letter check
-        		char chB, chS;
-        		for (chS = 'a', chB = 'A'; chS <= 'z' && chB <= 'Z'; chS++, chB++) {
-        			source[i] = chS;
-        			if (source == target) {
-        				return true;
-        			}
+        		source[i] = target[i] = specialChar;
 
-        			source[i] = chB;
-        			if (source == target) {
-        				return true;
-        			}
-        		}
-
-        		// digit check
-        		for (char digit = '0'; digit <= '9'; digit++) {
-        			source[i] = digit;
-        			if (source == target) {
-        				return true;
-        			}
+        		if (source == target) {
+        			return true;
         		}
 
         		source[i] = res;
+        		target[i] = tarRes;
         	}
 
         	return false;
