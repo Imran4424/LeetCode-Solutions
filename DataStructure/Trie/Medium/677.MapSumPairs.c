@@ -1,5 +1,4 @@
 
-
 const int tSize = 26;
 
 typedef struct MapSum{
