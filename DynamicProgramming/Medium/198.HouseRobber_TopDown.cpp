@@ -27,7 +27,7 @@
 class Solution {
 	int robbed[101];
 
-	int maxValue(int x , int y) {
+	int maxValue(int x, int y) {
 		if (x > y) {
 			return x;
 		}
@@ -35,29 +35,27 @@ class Solution {
 		return y;
 	}
 
-	int robDP(vector<int>& nums, int index) {
-		
+	int dpRob(vector<int> nums, int index) {
 		if (0 == index) {
-			return nums[index]; 
+			return nums[index];
 		}
 
 		if (1 == index) {
-			return maxValue(nums[0], nums[1]);
+			return maxValue(nums[index], nums[index - 1]);
 		}
 
 		if (-1 != robbed[index]) {
 			return robbed[index];
 		}
 
-		return robbed[index] = maxValue(robDP(nums, index - 1), robDP(nums, index - 2) + nums[index]);
+		return robbed[index] = maxValue(dpRob(nums, index - 1), dpRob(nums, index - 2) + nums[index]);
 	}
-
 public:
-    int rob(vector<int>& nums) {
-    	for (int i = 0; i < 101; i++) {
-    		robbed[i] = -1;
-    	}
+	int rob(vector<int>& nums) {
+		for (int i = 0; i < 101; ++i) {
+			robbed[i] = - 1;
+		}
 
-        return robDP(nums, nums.size() - 1);
-    }
+		return dpRob(nums, nums.size() - 1);
+	}
 };

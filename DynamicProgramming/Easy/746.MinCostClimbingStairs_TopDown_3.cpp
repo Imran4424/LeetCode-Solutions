@@ -35,37 +35,39 @@
 */
 
 class Solution {
-	int stairCost[1001];
-	vector<int> cost;
-
-	int minValue(int x, int y) {
-		if (x < y) {
-			return x;
-		}
-
-		return y;
-	}
-
-	int dpCost(int index) {
-		if (index < 2) {
-			return 0;
-		}
-
-		if (-1 != stairCost[index]) {
-			return stairCost[index];
-		}
-
-		return stairCost[index] = minValue(cost[index - 1] +  dpCost(index - 1), cost[index - 2] + dpCost(index - 2));
-	}
-
+    int dpCost[1001];
+    vector <int> cost;
+    
+    int minValue(int x, int y) {
+        if (x < y) {
+            return x;
+        }
+        
+        return y;
+    }
+    
+    int findMinCost(int index) {
+        if (index < 0) {
+            return 0;
+        }
+        
+        
+        if (-1 != dpCost[index]) {
+            return dpCost[index];
+        }
+        
+        
+        
+        return dpCost[index] = minValue(findMinCost(index - 1), findMinCost(index - 2)) + cost[index];
+    }
+    
 public:
-	int minCostClimbingStairs(vector<int>& cost) {
-		for (int i = 0; i < 1001; i++) {
-			stairCost[i] = -1;
-		}
-
-		this->cost = cost;
-
-		return dpCost(cost.size());
-	}
+    int minCostClimbingStairs(vector<int>& cost) {
+        for (int i = 0; i < 1001; ++i) {
+            dpCost[i] = -1;
+        }
+        this -> cost = cost;
+        
+        return minValue(findMinCost(cost.size() - 1), findMinCost(cost.size() - 2));
+    }
 };

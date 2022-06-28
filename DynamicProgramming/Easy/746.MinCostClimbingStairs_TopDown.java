@@ -35,8 +35,7 @@
 */
 
 class Solution {
-	int stairCost[1001];
-	vector<int> cost;
+	int[] minCost = new int[1001];
 
 	int minValue(int x, int y) {
 		if (x < y) {
@@ -46,26 +45,23 @@ class Solution {
 		return y;
 	}
 
-	int dpCost(int index) {
+	int dpCost(int[] cost, int index) {
 		if (index < 2) {
 			return 0;
 		}
 
-		if (-1 != stairCost[index]) {
-			return stairCost[index];
+		if (-1 != minCost[index]) {
+			return minCost[index];
 		}
 
-		return stairCost[index] = minValue(cost[index - 1] +  dpCost(index - 1), cost[index - 2] + dpCost(index - 2));
+		return minCost[index] = minValue(dpCost(cost, index - 1) + cost[index - 1], dpCost(cost, index - 2) + cost[index - 2]);
 	}
 
-public:
-	int minCostClimbingStairs(vector<int>& cost) {
-		for (int i = 0; i < 1001; i++) {
-			stairCost[i] = -1;
+	public int minCostClimbingStairs(int[] cost) {
+		for (int i = 0; i < 1001; ++i) {
+			minCost[i] = -1;
 		}
 
-		this->cost = cost;
-
-		return dpCost(cost.size());
+		return dpCost(cost, cost.length);
 	}
-};
+}
