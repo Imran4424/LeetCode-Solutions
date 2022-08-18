@@ -33,8 +33,11 @@ public:
 
 			for (int row = textOne.size() - 1; row >= 0; row--) {
 				if (textOne[row] == textTwo[col]) {
+					// previous row - previous, previous column - row + 1
 					current[i][j] = 1 + previous[row + 1];
 				} else {
+					// previous row - previous, current column - row
+					// current row - current, previous column - row + 1
 					current[i][j] = maxVal(previous[row], current[row + 1]);
 				}
 			}
