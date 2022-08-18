@@ -20,24 +20,25 @@ public:
 
 
 		int *previous = new int[textOne.size() + 1];
+		int *current = new int[textOne.size() + 1];
 
-		// intializing previous column
+
 		for (int i = 0; i <= textOne.size(); i++) {
 			previous[i] = 0;
 		}
 
 		for (int col = textTwo.size() - 1; col >= 0; col--) {
 
-			int *current = new int[textOne.size() + 1];
+			
 
 			for (int row = textOne.size() - 1; row >= 0; row--) {
 				if (textOne[row] == textTwo[col]) {
 					// previous row - previous, previous column - row + 1
 					current[i][j] = 1 + previous[row + 1];
 				} else {
-					// previous row - row + 1, current column - current
-					// current row - row, previous column - previous
-					current[i][j] = maxVal(current[row + 1], previous[row]);
+					// previous row - previous, current column - row
+					// current row - current, previous column - row + 1
+					current[i][j] = maxVal(previous[row], current[row + 1]);
 				}
 			}
 
