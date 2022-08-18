@@ -19,7 +19,10 @@ public:
 		}
 
 
+		// previous column
 		int *previous = new int[textOne.size() + 1];
+		// current column
+		int *current = new int[textOne.size() + 1];
 
 		// intializing previous column
 		for (int i = 0; i <= textOne.size(); i++) {
@@ -27,9 +30,6 @@ public:
 		}
 
 		for (int col = textTwo.size() - 1; col >= 0; col--) {
-
-			int *current = new int[textOne.size() + 1];
-
 			for (int row = textOne.size() - 1; row >= 0; row--) {
 				if (textOne[row] == textTwo[col]) {
 					// previous row - previous, previous column - row + 1
