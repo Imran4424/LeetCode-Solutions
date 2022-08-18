@@ -19,6 +19,7 @@ public:
 		}
 
 
+		// previous column
 		int *previous = new int[textOne.size() + 1];
 
 		// intializing previous column
@@ -28,6 +29,7 @@ public:
 
 		for (int col = textTwo.size() - 1; col >= 0; col--) {
 
+			// current column
 			int *current = new int[textOne.size() + 1];
 
 			for (int row = textOne.size() - 1; row >= 0; row--) {
