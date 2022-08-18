@@ -30,18 +30,24 @@ public:
 		}
 
 		for (int col = textTwo.size() - 1; col >= 0; col--) {
+			// initializing current col last index
+			current[textOne.size()] = 0;
+			
 			for (int row = textOne.size() - 1; row >= 0; row--) {
 				if (textOne[row] == textTwo[col]) {
 					// previous row - previous, previous column - row + 1
-					current[i][j] = 1 + previous[row + 1];
+					current[row] = 1 + previous[row + 1];
 				} else {
 					// previous row - row + 1, current column - current
 					// current row - row, previous column - previous
-					current[i][j] = maxVal(current[row + 1], previous[row]);
+					current[row] = maxVal(current[row + 1], previous[row]);
 				}
 			}
 
+			// swapping previous col with current one
+			int *temp = previous;
 			previous = current;
+			current = temp;
 		}
 
 
