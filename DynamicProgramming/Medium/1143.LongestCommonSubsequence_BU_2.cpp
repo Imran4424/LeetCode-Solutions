@@ -10,25 +10,39 @@ class Solution {
 
 public:
 	int longestCommonSubsequence(string textOne, string textTwo) {
-		int dp[textOne.size() + 1][textTwo.size() + 1];
+		// always keep textOne shortest
+		// if not swap them
+		if (textTwo.size() < textOne.size()) {
+			string temp = textOne;
+			textOne = textTwo;
+			textTwo = temp;
+		}
+
+
+		int *previous = new int[textOne.size() + 1];
+
+
 
 		for (int i = 0; i <= textOne.size(); i++) {
-			for (int j = 0; j <= textTwo.size(); j++) {
-				dp[i][j] = 0;
-			}
+			previous[i] = 0;
 		}
 
-		for (int i = textOne.size() - 1; i >= 0; i--) {
-			for (int j = textTwo.size() - 1; j >= 0; j--) {
-				if (textOne[i] == textTwo[j]) {
-					dp[i][j] = 1 + dp[i + 1][j + 1];
+		for (int col = textTwo.size() - 1; col >= 0; col--) {
+
+			int *current = new int[textOne.size() + 1];
+
+			for (int row = textOne.size() - 1; row >= 0; row--) {
+				if (textOne[row] == textTwo[col]) {
+					current[i][j] = 1 + previous[row + 1];
 				} else {
-					dp[i][j] = maxVal(dp[i + 1][j], dp[i][j + 1]);
+					current[i][j] = maxVal(previous[row], current[row + 1]);
 				}
 			}
+
+			previous = current;
 		}
 
 
-		return dp[0][0];
+		return previous[0];
 	}
 };
