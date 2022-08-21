@@ -26,6 +26,7 @@ public:
                 int rightMax = prices[length - 1];
 
                 int leftProfit[length], rightProfit[length + 1];
+                
                 leftProfit[0] = 0;
                 leftProfit[1] = 0;
                 rightProfit[length] = 0;
