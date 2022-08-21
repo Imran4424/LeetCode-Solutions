@@ -4,21 +4,19 @@ public:
         int total = 0;
         int localMax = prices[0];
         int localMin = prices[0];
+        int k = 2;
         
-        for (int i = 1; i < prices.size(); ++i) {
+        for (int i = 1; i < prices.size() && k; ++i) {
             if (prices[i] < localMax) {
+                if (localMax - localMin > 0) {
+                    k--;
+                }
+
                 total += localMax - localMin;
                 localMax = prices[i];
                 localMin = prices[i];
             } else {
-                if (prices[i] > localMax) {
-                    localMax = prices[i];
-                }
-
-
-                if (prices[i] < localMin) {
-                    localMin = prices[i];
-                }
+                localMax = prices[i];
             }
         }
         

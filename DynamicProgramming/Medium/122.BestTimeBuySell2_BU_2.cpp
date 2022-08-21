@@ -11,14 +11,7 @@ public:
                 localMax = prices[i];
                 localMin = prices[i];
             } else {
-                if (prices[i] > localMax) {
-                    localMax = prices[i];
-                }
-
-
-                if (prices[i] < localMin) {
-                    localMin = prices[i];
-                }
+                localMax = prices[i];
             }
         }
         
