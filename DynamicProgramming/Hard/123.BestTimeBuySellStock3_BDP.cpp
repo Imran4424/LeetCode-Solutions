@@ -35,6 +35,7 @@ public:
                 for (int left = 1; left < prices.size(); ++left) {
                         leftProfit[left] = maxValue(leftProfit[left - 1], prices[left] - leftMin);
 
+                        // min so far for left sequence
                         if (prices[left] < leftMin) {
                                 leftMin = prices[left];
                         }
@@ -42,6 +43,7 @@ public:
                         int right = length - left - 1;
 
                         rightProfit[right] = maxValue(rightProfit[right + 1], rightMax - prices[right]);
+                        // max so far for right sequence
                         rightMax = maxValue(rightMax, prices[right]);
                 }
 
