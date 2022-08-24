@@ -1,27 +1,28 @@
 class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int total = 0;
-        int localMax = prices[0];
-        int localMin = prices[0];
-        int k = 2;
-        
-        for (int i = 1; i < prices.size() && k; ++i) {
-            if (prices[i] < localMax) {
-                if (localMax - localMin > 0) {
-                    k--;
+        int maxValue(int x, int y) {
+                if (x > y) {
+                        return x;
                 }
 
-                total += localMax - localMin;
-                localMax = prices[i];
-                localMin = prices[i];
-            } else {
-                localMax = prices[i];
-            }
+                return y;
         }
-        
-        total += localMax - localMin;
-        
-        return total;
-    }
+
+public:
+        int maxProfit(vector<int>& prices) {
+                int firstTransactionCost = prices[0];
+                int firstTransactionProfit = 0;
+
+                int mostMoneyInPocket = -prices[0];
+                int profitFromTwoTransactions  = 0;
+
+                for (int i = 0; i < prices.size(); ++i) {
+                        firstTransactionCost = maxValue(firstTransactionCost, prices[i]);
+                        firstTransactionProfit = maxValue(firstTransactionProfit, prices[i] - firstTransactionCost);
+
+                        mostMoneyInPocket  = maxValue(mostMoneyInPocket , firstTransactionProfit - prices[i]);
+                        profitFromTwoTransactions = maxValue(profitFromTwoTransactions, mostMoneyInPocket + prices[i]);
+                }
+
+                return profitFromTwoTransactions;
+        }
 };
