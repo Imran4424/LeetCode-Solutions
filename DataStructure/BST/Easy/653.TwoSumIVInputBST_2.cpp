@@ -12,7 +12,7 @@
  * };
  */
 class Solution {
-	bool preFind(TreeNode* root, int target, int pickCount) {
+	bool preFind(TreeNode* root, int &target, int &pickCount) {
 		if (2 == pickCount) {
 			if (0 == target) {
 				return true;
@@ -32,18 +32,31 @@ class Solution {
 		}
 
 		// left
-		bool leftPick = preFind(root -> left, target - root -> val, pickCount + 1);
+		target -= root -> val;
+		++pickCount;
+		bool leftPick = preFind(root -> left, target, pickCount);
+		// backtracking
+		target += root -> val;
+		--pickCount;
+
 		bool leftNotPick = preFind(root -> left, target, pickCount);
 
 		// right
-		bool rightPick = preFind(root -> right, target - root -> val, pickCount + 1);
+		target -= root -> val;
+		++pickCount;
+		bool rightPick = preFind(root -> right, target, pickCount);
+		// backtracking
+		target += root -> val;
+		--pickCount;
+
 		bool rightNotPick = preFind(root -> right, target, pickCount);
 
 		return leftPick || leftNotPick || rightPick || rightNotPick;
 	}
 public:
 	bool findTarget(TreeNode* root, int target) {
-		return preFind(root, target, 0);
+		int pickCount = 0;
+		return preFind(root, target, pickCount);
 	}
 };
 
