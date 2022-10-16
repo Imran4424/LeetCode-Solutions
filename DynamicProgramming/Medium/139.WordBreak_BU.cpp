@@ -17,7 +17,6 @@ public:
 		for (i = text.size() - 1; i >= 0; --i) {
 			for (string &word : wordDict) {
 				if (text.substr(i, word.size()) == word) {
-					cout << text.substr(i, word.size()) << endl;
 					dp[i] = dp[i + word.size()];
 				}
 

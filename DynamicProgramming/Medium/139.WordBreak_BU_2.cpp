@@ -20,7 +20,6 @@ public:
 				// when using substr() with c++ we can omit first condition
 				// second condition to generate substring and compare it to dictory word
 				if (i + word.size() <= text.size() && text.substr(i, word.size()) == word) {
-					cout << text.substr(i, word.size()) << endl;
 					dp[i] = dp[i + word.size()];
 				}
 
