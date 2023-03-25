@@ -1,49 +1,45 @@
 
 
-
 class Solution {
-	int dp[2501] = { 0 };
+	int dp[2501];
     
 	int maxValue(int x, int y) {
-		if (x > y) {
-			return x;
-		}
-
-		return y;
+	if (x > y) {
+	    return x;
 	}
+        
+        return y;
+    }
     
-	int dpSequence(vector<int> nums, int index, int inHand) {
+	int dpSequence(vector<int> &nums, int index, int inHand) {
 		if (index >= nums.size()) {
-			return 1;
+			return 0;
 		}
-
-		if (dp[index] != 0) {
-			return dp[index];
+        
+		// + 1 - incase of inhand -1 it won't crash
+		if (dp[inHand + 1] != -1) {
+			return dp[inHand + 1];
 		}
-
-		if (nums[index] > inHand) {
-			int skip = dpSequence(nums, index + 1, inHand);
-			int notSkip =  1 + dpSequence(nums, index + 1, nums[index]);
-
-			if (skip > notSkip) {
-				return dp[index] = skip;
-			}
-
-			return dp[index] = notSkip;
+        
+		int notSkip = 0;
+		int skip = dpSequence(nums, index + 1, inHand);
+        
+        
+		if (-1 == inHand || nums[index] > nums[inHand]) {
+			notSkip =  1 + dpSequence(nums, index + 1, index);
 		}
-
-		return dp[index] = dpSequence(nums, index + 1, inHand);
+        
+        	return dp[inHand + 1] = maxValue(skip, notSkip);
 	}
     
     
 public:
-int lengthOfLIS(vector<int>& nums) {
-	int maxSeq = 0;
+	int lengthOfLIS(vector<int>& nums) {
+		int maxSeq = 0;
+		for (int i = 0; i <= nums.size(); ++i) {
+			dp[i] = -1;
+		}
 
-	for (int i = nums.size() - 1; i >= 0; --i) {
-		maxSeq = maxValue(maxSeq, dpSequence(nums, i - 1, nums[i]));
-	}
-
-		return maxSeq;
+		return dpSequence(nums, 0, -1);
 	}
 };
